@@ -8,7 +8,8 @@ const translations = {
     // Navbar
     discover: 'Discover',
     events: 'Events',
-    myPassport: 'My Passport',
+    myTrip: 'My Trip',
+    aiGuide: 'AI Guide',
     startExploring: 'Start Exploring',
 
     // Hero
@@ -158,7 +159,8 @@ const translations = {
   fr: {
     discover: 'Découvrir',
     events: 'Événements',
-    myPassport: 'Mon Passeport',
+    myTrip: 'Mon Voyage',
+    aiGuide: 'Guide IA',
     startExploring: 'Commencer',
 
     heroEyebrow: 'Exploration Culturelle par IA',

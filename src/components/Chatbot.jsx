@@ -4,25 +4,46 @@ import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useLang } from '../context/LanguageContext';
 
-const GEMINI_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
-async function askCulturalGuide(message) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(GEMINI_KEY)}`;
-  const body = {
-    contents: [{
-      parts: [{ text: `You are a friendly French cultural guide. Answer questions about French culture, events, festivals, regions, food, traditions, and travel tips. Keep answers concise (2-4 sentences). Be warm and knowledgeable.\n\nUser: ${message}` }]
-    }]
-  };
+const delay = (ms) => new Promise((r) => setTimeout(r, ms));
 
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
+async function askCulturalGuide(message, retries = 3) {
+  if (!GITHUB_TOKEN) return 'API token is missing. Please set VITE_GITHUB_TOKEN in your .env file.';
 
-  if (!res.ok) return 'Sorry, I couldn\'t process that request. Please try again!';
-  const data = await res.json();
-  return data?.candidates?.[0]?.content?.parts?.[0]?.text || 'I\'m not sure about that. Try asking about a specific French cultural event or region!';
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      if (attempt > 0) await delay(1500 * attempt);
+      const res = await fetch('https://models.inference.ai.azure.com/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        },
+        body: JSON.stringify({
+          model: 'gpt-4o-mini',
+          messages: [
+            { role: 'system', content: 'You are a friendly French cultural guide. Answer questions about French culture, events, festivals, regions, food, traditions, and travel tips. Keep answers concise (2-4 sentences). Be warm and knowledgeable.' },
+            { role: 'user', content: message },
+          ],
+          temperature: 0.7,
+          max_tokens: 250,
+        }),
+      });
+
+      if (res.status === 429) {
+        if (attempt < retries - 1) continue;
+        return 'Rate limit reached. Please wait a few seconds and try again.';
+      }
+      if (!res.ok) {
+        return `Sorry, API error (${res.status}). Please try again.`;
+      }
+      const data = await res.json();
+      return data.choices?.[0]?.message?.content || 'I\'m not sure about that. Try asking about a specific French cultural event or region!';
+    } catch {
+      if (attempt === retries - 1) return 'Network error. Please check your connection.';
+    }
+  }
 }
 
 export default function Chatbot() {

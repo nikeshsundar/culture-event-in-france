@@ -1,11 +1,28 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles } from 'lucide-react';
-import { useState } from 'react';
-import { generateEventStory } from '../ai/gemini';
+import { X, Sparkles, MessageCircle, Send, Bot, Bookmark, CalendarPlus } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { generateEventStory, askAboutEvent } from '../ai/gemini';
 
 export default function EventModal({ event, onClose }) {
   const [story, setStory] = useState(null);
   const [loadingStory, setLoadingStory] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatMessages, setChatMessages] = useState([]);
+  const [chatInput, setChatInput] = useState('');
+  const [chatLoading, setChatLoading] = useState(false);
+  const chatRef = useRef(null);
+
+  useEffect(() => {
+    if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight;
+  }, [chatMessages]);
+
+  // Reset state when event changes
+  useEffect(() => {
+    setStory(null);
+    setChatOpen(false);
+    setChatMessages([]);
+    setChatInput('');
+  }, [event?.id]);
 
   if (!event) return null;
 
@@ -14,6 +31,58 @@ export default function EventModal({ event, onClose }) {
     const result = await generateEventStory(event);
     setStory(result);
     setLoadingStory(false);
+  };
+
+  const handleEventChat = async (directQuestion) => {
+    const question = directQuestion || chatInput.trim();
+    if (!question || chatLoading) return;
+    setChatInput('');
+    setChatMessages((prev) => [...prev, { role: 'user', text: question }]);
+    setChatLoading(true);
+    const reply = await askAboutEvent(event, question);
+    setChatMessages((prev) => [...prev, { role: 'bot', text: reply }]);
+    setChatLoading(false);
+  };
+
+  const addToVault = () => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('experienceVault') || '[]');
+      if (!saved.some((i) => i.id === event.id)) {
+        const newItem = {
+          id: event.id,
+          name: event.name,
+          city: event.city,
+          category: event.category,
+          note: '',
+        };
+        localStorage.setItem('experienceVault', JSON.stringify([...saved, newItem]));
+        window.dispatchEvent(new Event('vault-updated'));
+        alert('Added to Experience Vault!');
+      } else {
+        alert('Already in your Vault.');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const addToItinerary = () => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('myItinerary') || '[]');
+      const newItem = {
+        uid: `${Date.now()}-${event.id}`,
+        eventId: event.id,
+        name: event.name,
+        city: event.city,
+        date: event.date,
+        time: '10:00',
+      };
+      localStorage.setItem('myItinerary', JSON.stringify([...saved, newItem]));
+      window.dispatchEvent(new Event('itinerary-updated'));
+      alert(`Added to Itinerary for ${event.date}!`);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -61,6 +130,21 @@ export default function EventModal({ event, onClose }) {
                 <span>→ {new Date(event.endDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}</span>
               )}
               {event.distance != null && <span>📍 {event.distance} km away</span>}
+            </div>
+
+            <div className="flex flex-wrap gap-3 mb-6">
+              <button
+                onClick={addToVault}
+                className="flex items-center gap-2 px-4 py-2 bg-navy/5 hover:bg-navy/10 rounded-lg text-sm font-semibold text-navy transition-colors"
+              >
+                <Bookmark size={15} /> Save to Vault
+              </button>
+              <button
+                onClick={addToItinerary}
+                className="flex items-center gap-2 px-4 py-2 bg-navy/5 hover:bg-navy/10 rounded-lg text-sm font-semibold text-navy transition-colors"
+              >
+                <CalendarPlus size={15} /> Add to Itinerary
+              </button>
             </div>
 
             {/* Description */}
@@ -134,6 +218,113 @@ export default function EventModal({ event, onClose }) {
                     <span className="text-gold text-xs font-bold tracking-[0.1em] uppercase">AI Story Mode</span>
                   </div>
                   <p className="text-white/80 leading-relaxed italic">{story}</p>
+                </motion.div>
+              )}
+            </div>
+
+            {/* Know More - AI Chat about this event */}
+            <div className="border-t border-gray-100 pt-5 mt-2">
+              {!chatOpen ? (
+                <button
+                  onClick={() => setChatOpen(true)}
+                  className="w-full bg-navy text-white py-3 rounded-xl font-bold text-sm hover:scale-[1.02] transition-transform flex items-center justify-center gap-2"
+                >
+                  <MessageCircle size={14} />
+                  Know More — Chat with AI about this event
+                </button>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-navy/5 rounded-xl overflow-hidden"
+                >
+                  <div className="gold-gradient px-4 py-2.5 flex items-center gap-2">
+                    <Bot size={16} className="text-navy" />
+                    <span className="font-bold text-navy text-sm">Ask about {event.name}</span>
+                  </div>
+
+                  {/* Quick questions */}
+                  {chatMessages.length === 0 && (
+                    <div className="px-4 pt-3 flex flex-wrap gap-2">
+                      {[
+                        `What should I wear to ${event.name}?`,
+                        `Best food near ${event.city}?`,
+                        `How to get tickets?`,
+                        `What's the history?`,
+                      ].map((q) => (
+                        <button
+                          key={q}
+                          onClick={() => {
+                            setChatInput(q);
+                            handleEventChat(q);
+                          }}
+                          className="text-[0.72rem] bg-white border border-navy/10 text-navy px-3 py-1.5 rounded-full hover:border-gold hover:bg-gold/5 transition-colors"
+                        >
+                          {q}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Messages */}
+                  <div ref={chatRef} className="max-h-[200px] overflow-y-auto p-4 space-y-3">
+                    {chatMessages.map((msg, i) => (
+                      <div key={i} className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                        {msg.role === 'bot' && (
+                          <div className="w-6 h-6 rounded-full gold-gradient flex items-center justify-center flex-shrink-0 mt-1">
+                            <Bot size={12} className="text-navy" />
+                          </div>
+                        )}
+                        <div className={`max-w-[80%] rounded-xl px-3 py-2 text-sm leading-relaxed ${
+                          msg.role === 'user'
+                            ? 'gold-gradient text-navy font-medium'
+                            : 'bg-white border border-gray-100 text-gray-600'
+                        }`}>
+                          {msg.text}
+                        </div>
+                      </div>
+                    ))}
+                    {chatLoading && (
+                      <div className="flex gap-2 items-center">
+                        <div className="w-6 h-6 rounded-full gold-gradient flex items-center justify-center flex-shrink-0">
+                          <Bot size={12} className="text-navy" />
+                        </div>
+                        <div className="bg-white border border-gray-100 rounded-xl px-3 py-2">
+                          <div className="flex gap-1">
+                            {[0, 1, 2].map((i) => (
+                              <motion.div
+                                key={i}
+                                animate={{ y: [0, -4, 0] }}
+                                transition={{ duration: 0.5, repeat: Infinity, delay: i * 0.12 }}
+                                className="w-1.5 h-1.5 rounded-full bg-gold"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Input */}
+                  <div className="px-4 pb-4">
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={chatInput}
+                        onChange={(e) => setChatInput(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && handleEventChat()}
+                        placeholder={`Ask anything about ${event.name}...`}
+                        className="flex-1 px-3 py-2 rounded-lg text-sm outline-none bg-white border border-gray-200 text-navy focus:border-gold placeholder:text-gray-300"
+                      />
+                      <button
+                        onClick={() => handleEventChat()}
+                        disabled={chatLoading || !chatInput.trim()}
+                        className="w-9 h-9 rounded-lg gold-gradient flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-50"
+                      >
+                        <Send size={14} className="text-navy" />
+                      </button>
+                    </div>
+                  </div>
                 </motion.div>
               )}
             </div>

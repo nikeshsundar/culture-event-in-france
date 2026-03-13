@@ -8,7 +8,8 @@ import { useTheme } from '../context/ThemeContext';
 const navLinks = [
   { path: '/', labelKey: 'discover' },
   { path: '/events', labelKey: 'events' },
-  { path: '/passport', labelKey: 'myPassport' },
+  { path: '/my-trip', labelKey: 'myTrip' },
+  { path: '/chat-guide', labelKey: 'aiGuide' },
 ];
 
 export default function Navbar() {
@@ -121,6 +122,7 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={() => setMobileOpen(false)}
                 className={`text-base font-medium py-2 ${
                   location.pathname === link.path ? 'text-gold' : 'text-white/70'
                 }`}

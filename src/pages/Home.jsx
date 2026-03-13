@@ -5,7 +5,6 @@ import StatsBar from '../components/StatsBar';
 import FeaturesGrid from '../components/FeaturesGrid';
 import SeasonalMap from '../components/SeasonalMap';
 import TimeMachine from '../components/TimeMachine';
-import CulturalPassport from '../components/CulturalPassport';
 import ImmersionScore from '../components/ImmersionScore';
 import RoutePlanner from '../components/RoutePlanner';
 import EventCard from '../components/EventCard';
@@ -70,9 +69,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Passport */}
-      <CulturalPassport exploredRegions={exploredRegions} />
 
       {/* Time Machine */}
       <TimeMachine />

@@ -3,12 +3,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useTheme } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import SoundtrackPlayer from './components/SoundtrackPlayer';
-import Chatbot from './components/Chatbot';
 import Home from './pages/Home';
 import Results from './pages/Results';
 import Events from './pages/Events';
-import Passport from './pages/Passport';
+import MyTrip from './pages/MyTrip';
+import ChatGuide from './pages/ChatGuide';
 
 
 const pageVariants = {
@@ -28,11 +27,14 @@ function AnimatedPage({ children }) {
 export default function App() {
   const location = useLocation();
   const { theme } = useTheme();
+  
+  // Hide footer on full-screen chat page
+  const showFooter = location.pathname !== '/chat-guide';
 
   return (
     <div className={`min-h-screen flex flex-col ${theme === 'dark' ? 'bg-navy text-white' : 'bg-cream text-navy'}`}>
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 flex flex-col">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route
@@ -60,10 +62,18 @@ export default function App() {
               }
             />
             <Route
-              path="/passport"
+              path="/my-trip"
               element={
                 <AnimatedPage>
-                  <Passport />
+                  <MyTrip />
+                </AnimatedPage>
+              }
+            />
+            <Route
+              path="/chat-guide"
+              element={
+                <AnimatedPage>
+                  <ChatGuide />
                 </AnimatedPage>
               }
             />
@@ -71,9 +81,7 @@ export default function App() {
           </Routes>
         </AnimatePresence>
       </main>
-      <Footer />
-      <SoundtrackPlayer />
-      <Chatbot />
+      {showFooter && <Footer />}
     </div>
   );
 }

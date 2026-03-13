@@ -1,9 +1,52 @@
 import { motion } from 'framer-motion';
-import { MapPin, Calendar } from 'lucide-react';
+import { MapPin, Calendar, Bookmark, CalendarPlus } from 'lucide-react';
 import { sensoryTypes } from '../data/constants';
 
 export default function EventCard({ event, index = 0, onClick }) {
   const sensoryMap = Object.fromEntries(sensoryTypes.map((s) => [s.id, s]));
+
+  const addToVault = (e) => {
+    e.stopPropagation();
+    try {
+      const saved = JSON.parse(localStorage.getItem('experienceVault') || '[]');
+      if (!saved.some((i) => i.id === event.id)) {
+        const newItem = {
+          id: event.id,
+          name: event.name,
+          city: event.city,
+          category: event.category,
+          note: '',
+        };
+        localStorage.setItem('experienceVault', JSON.stringify([...saved, newItem]));
+        window.dispatchEvent(new Event('vault-updated'));
+        alert('Added to Experience Vault!');
+      } else {
+        alert('Already in your Vault.');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const addToItinerary = (e) => {
+    e.stopPropagation();
+    try {
+      const saved = JSON.parse(localStorage.getItem('myItinerary') || '[]');
+      const newItem = {
+        uid: `${Date.now()}-${event.id}`,
+        eventId: event.id,
+        name: event.name,
+        city: event.city,
+        date: event.date,
+        time: '10:00',
+      };
+      localStorage.setItem('myItinerary', JSON.stringify([...saved, newItem]));
+      window.dispatchEvent(new Event('itinerary-updated'));
+      alert(`Added to Itinerary for ${event.date}!`);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <motion.div
@@ -89,6 +132,23 @@ export default function EventCard({ event, index = 0, onClick }) {
             <p className="text-[0.7rem] text-gray-400 mt-0.5">{event.phraseTranslation}</p>
           </div>
         )}
+
+        <div className="flex gap-3 mt-4 pt-3 border-t border-gray-100 items-center justify-end">
+          <button
+            onClick={addToVault}
+            className="p-2 rounded-full bg-gray-50 text-gray-400 hover:bg-gold/10 hover:text-gold-dark transition-all"
+            title="Add to Vault"
+          >
+            <Bookmark size={18} />
+          </button>
+          <button
+            onClick={addToItinerary}
+            className="p-2 rounded-full bg-gray-50 text-gray-400 hover:bg-gold/10 hover:text-gold-dark transition-all"
+            title="Add to Itinerary"
+          >
+            <CalendarPlus size={18} />
+          </button>
+        </div>
       </div>
     </motion.div>
   );
