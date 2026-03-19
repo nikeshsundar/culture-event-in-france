@@ -29,9 +29,13 @@ const translations = {
     location: 'Location',
     allFrance: 'All of France',
     date: 'Date',
+    from: 'From',
+    to: 'To',
     proximity: 'Proximity',
     noLimit: 'No limit',
     exploreNow: 'Explore Now →',
+    randomSearch: 'Random Search',
+    randomSearchHint: 'Get a random search suggestion to inspire you!',
     mood: 'Mood:',
 
     // Stats
@@ -124,6 +128,7 @@ const translations = {
     calculateRoute: 'Calculate Route',
     totalDistance: 'Total Distance',
     clearRoute: 'Clear Route',
+    mysteryRoute: '✨ Surprise Me Route',
 
     // Chatbot
     chatTitle: 'Cultural Guide',
@@ -178,9 +183,13 @@ const translations = {
     location: 'Lieu',
     allFrance: 'Toute la France',
     date: 'Date',
+    from: 'Du',
+    to: 'Au',
     proximity: 'Proximité',
     noLimit: 'Sans limite',
     exploreNow: 'Explorer →',
+    randomSearch: 'Recherche Aléatoire',
+    randomSearchHint: 'Obtenez une suggestion aléatoire pour vous inspirer !',
     mood: 'Humeur :',
 
     statEvents: 'Événements Culturels',
@@ -260,6 +269,7 @@ const translations = {
     calculateRoute: 'Calculer l\'Itinéraire',
     totalDistance: 'Distance Totale',
     clearRoute: 'Effacer',
+    mysteryRoute: '✨ Itinéraire Surprise',
 
     chatTitle: 'Guide Culturel',
     chatPlaceholder: 'Posez une question sur la culture française...',

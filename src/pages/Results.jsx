@@ -19,6 +19,7 @@ export default function Results() {
   const cityLng = params.get('lng') ? parseFloat(params.get('lng')) : null;
   const cityName = params.get('city') || '';
   const date = params.get('date') || '';
+  const endDate = params.get('endDate') || '';
   const range = params.get('range') ? parseInt(params.get('range')) : 10000;
   const mood = params.get('mood') || '';
   const season = params.get('season') || '';
@@ -30,6 +31,7 @@ export default function Results() {
       cityLat,
       cityLng,
       date,
+      endDate,
       range,
       mood,
       season,
@@ -82,7 +84,8 @@ export default function Results() {
             </h1>
             <p className="text-white/50 text-sm">
               {results.length} event{results.length !== 1 ? 's' : ''} found
-              {date && ` · ${new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`}
+              {date && !endDate && ` · ${new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`}
+              {date && endDate && ` · ${new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${new Date(endDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`}
               {mood && ` · ${mood} mood`}
               {range < 10000 && ` · within ${range} km`}
             </p>

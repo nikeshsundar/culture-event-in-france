@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Route, Plus, Trash2, Navigation, Clock, Car } from 'lucide-react';
+import { MapPin, Route, Plus, Trash2, Navigation, Clock, Car, Sparkles } from 'lucide-react';
 import { haversineDistance } from '../utils/haversine';
 import { useTheme } from '../context/ThemeContext';
 import { useLang } from '../context/LanguageContext';
@@ -44,6 +44,40 @@ export default function RoutePlanner() {
     setShowPicker(false);
   };
 
+  const generateMysteryRoute = () => {
+    if (events.length < 3) return;
+
+    const totalStops = Math.min(events.length, Math.floor(Math.random() * 3) + 3); // 3-5
+    const start = events[Math.floor(Math.random() * events.length)];
+    const route = [start];
+    const used = new Set([start.id]);
+
+    while (route.length < totalStops) {
+      const current = route[route.length - 1];
+
+      const remaining = events
+        .filter((event) => !used.has(event.id))
+        .map((event) => ({
+          event,
+          dist: haversineDistance(current.latitude, current.longitude, event.latitude, event.longitude),
+        }));
+
+      if (remaining.length === 0) break;
+
+      const nearby = remaining.filter((candidate) => candidate.dist <= 700);
+      const pool = nearby.length > 0 ? nearby : remaining;
+
+      const nearest = [...pool].sort((a, b) => a.dist - b.dist).slice(0, 8);
+      const picked = nearest[Math.floor(Math.random() * nearest.length)].event;
+
+      route.push(picked);
+      used.add(picked.id);
+    }
+
+    setSelectedIds(route.map((event) => event.id));
+    setShowPicker(false);
+  };
+
   const removeEvent = (id) => setSelectedIds((prev) => prev.filter((x) => x !== id));
 
   const available = events.filter((e) => !selectedIds.includes(e.id));
@@ -73,6 +107,18 @@ export default function RoutePlanner() {
                 Your Stops ({selectedIds.length}/5)
               </span>
             </div>
+
+            <button
+              onClick={generateMysteryRoute}
+              className={`w-full mb-4 flex items-center justify-center gap-2 p-3 rounded-xl transition-all font-semibold text-sm ${
+                isDark
+                  ? 'gold-gradient text-navy hover:brightness-105'
+                  : 'gold-gradient text-navy hover:brightness-105'
+              }`}
+            >
+              <Sparkles size={15} />
+              {t('mysteryRoute')}
+            </button>
 
             <div className="space-y-3 mb-4">
               <AnimatePresence>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import ExperienceVault from '../components/ExperienceVault';
 import MyItinerary from '../components/MyItinerary';
+import RoutePlanner from '../components/RoutePlanner';
 import events from '../data/events.json';
 
 export default function MyTrip() {
@@ -31,6 +32,9 @@ export default function MyTrip() {
 
         {/* My Itinerary */}
         <MyItinerary events={events} />
+
+        {/* Surprise Route Planner */}
+        <RoutePlanner />
       </div>
     </div>
   );

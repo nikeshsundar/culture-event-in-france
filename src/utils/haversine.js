@@ -24,14 +24,14 @@ export function isEventNearDate(event, targetDate) {
   if (!targetDate) return true;
   const target = new Date(targetDate);
   const start = new Date(event.date);
-  const end = new Date(event.endDate);
+  const end = new Date(event.endDate || event.date);
   return target >= start && target <= end;
 }
 
 /**
  * Filter events by location, date, range, mood, and sensory
  */
-export function filterEvents(events, { cityLat, cityLng, date, range, mood, sensory, category, hiddenGemOnly, season }) {
+export function filterEvents(events, { cityLat, cityLng, date, endDate, range, mood, sensory, category, hiddenGemOnly, season }) {
   return events.filter((event) => {
     // Distance filter
     if (cityLat && cityLng && range) {
@@ -39,8 +39,17 @@ export function filterEvents(events, { cityLat, cityLng, date, range, mood, sens
       if (dist > range) return false;
     }
 
-    // Date filter
-    if (date && !isEventNearDate(event, date)) return false;
+    // Date filter (Range or Single Date)
+    if (date && endDate) {
+      const eventStart = new Date(event.date);
+      const eventEnd = new Date(event.endDate || event.date);
+      const queryStart = new Date(date);
+      const queryEnd = new Date(endDate);
+      // Check for overlap
+      if (!(eventStart <= queryEnd && eventEnd >= queryStart)) return false;
+    } else if (date && !isEventNearDate(event, date)) {
+      return false;
+    }
 
     // Mood filter
     if (mood && !event.mood.includes(mood)) return false;

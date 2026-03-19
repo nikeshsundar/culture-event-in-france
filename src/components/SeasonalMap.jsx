@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { seasons } from '../data/constants';
 import events from '../data/events.json';
 
@@ -57,24 +58,81 @@ const CORSICA_PATH = `
   Z
 `;
 
-// City positions in SVG coordinate space (same projection, coastal cities nudged just inside border)
-const regionDots = [
-  { name: 'Paris',      x: 253, y: 134, r: 7 },
-  { name: 'Lyon',       x: 325, y: 272, r: 6 },
-  { name: 'Marseille',  x: 330, y: 370, r: 6 },
-  { name: 'Bordeaux',   x: 168, y: 313, r: 6 },
-  { name: 'Strasbourg', x: 406, y: 145, r: 5 },
-  { name: 'Nantes',     x: 139, y: 207, r: 5 },
-  { name: 'Nice',       x: 398, y: 348, r: 5 },
-  { name: 'Lille',      x: 274, y: 57,  r: 5 },
-  { name: 'Toulouse',   x: 220, y: 365, r: 5 },
-  { name: 'Cannes',     x: 382, y: 360, r: 5 },
-];
+function projectToMap(latitude, longitude) {
+  const x = (longitude + 5.3) * 29.14 + 30;
+  const y = (51.2 - latitude) * 44.44 + 30;
+  return {
+    x: Math.max(30, Math.min(470, x)),
+    y: Math.max(30, Math.min(470, y)),
+  };
+}
 
 export default function SeasonalMap() {
   const [activeSeason, setActiveSeason] = useState('summer');
+  const navigate = useNavigate();
 
   const seasonEvents = events.filter((e) => e.season === activeSeason);
+
+  const seasonDots = useMemo(() => {
+    const cityMap = new Map();
+
+    seasonEvents.forEach((event) => {
+      if (!cityMap.has(event.city)) {
+        const position = projectToMap(event.latitude, event.longitude);
+        cityMap.set(event.city, {
+          city: event.city,
+          latitude: event.latitude,
+          longitude: event.longitude,
+          x: position.x,
+          y: position.y,
+          count: 0,
+        });
+      }
+
+      const current = cityMap.get(event.city);
+      current.count += 1;
+      cityMap.set(event.city, current);
+    });
+
+    return Array.from(cityMap.values()).map((dot) => ({
+      ...dot,
+      r: Math.min(8, 4 + dot.count),
+    }));
+  }, [seasonEvents]);
+
+  const seasonDotLabels = useMemo(() => {
+    const minY = 24;
+    const maxY = 476;
+    const minGap = 26; // Increased from 18 to account for text height (10.5px font + padding)
+
+    const spreadY = (list) => {
+      if (list.length === 0) return [];
+
+      const sorted = [...list].sort((a, b) => a.y - b.y);
+      const forward = [];
+
+      for (let index = 0; index < sorted.length; index += 1) {
+        const current = sorted[index];
+        const previousY = index === 0 ? minY : forward[index - 1].labelY + minGap;
+        const labelY = Math.max(current.y, previousY);
+        forward.push({ ...current, labelY });
+      }
+
+      if (forward[forward.length - 1].labelY > maxY) {
+        forward[forward.length - 1].labelY = maxY;
+        for (let index = forward.length - 2; index >= 0; index -= 1) {
+          forward[index].labelY = Math.min(forward[index].labelY, forward[index + 1].labelY - minGap);
+        }
+      }
+
+      return forward;
+    };
+
+    const left = seasonDots.filter((dot) => dot.x < 250).map((dot) => ({ ...dot, side: 'left' }));
+    const right = seasonDots.filter((dot) => dot.x >= 250).map((dot) => ({ ...dot, side: 'right' }));
+
+    return [...spreadY(left), ...spreadY(right)];
+  }, [seasonDots]);
 
   const seasonColors = {
     spring: '#D4A8E0',
@@ -117,9 +175,9 @@ export default function SeasonalMap() {
         </div>
 
         {/* Map container */}
-        <div className="max-w-4xl mx-auto glass rounded-3xl p-6 md:p-10 flex flex-col md:flex-row gap-8 items-stretch">
-          {/* Map visual */}
-          <div className="flex-1 min-h-[380px] bg-white/[0.03] rounded-2xl border border-white/8 relative overflow-hidden flex items-center justify-center p-4">
+        <div className="max-w-4xl mx-auto glass rounded-3xl p-6 md:p-10 flex items-stretch">
+          {/* Map visual - Full Width */}
+          <div className="w-full min-h-[450px] bg-white/[0.03] rounded-2xl border border-white/8 relative overflow-hidden flex items-center justify-center p-4">
               <svg
                 viewBox="0 0 500 500"
                 className="w-full h-full"
@@ -142,90 +200,87 @@ export default function SeasonalMap() {
                   strokeLinejoin="round"
                 />
 
-                {/* City dots — rendered inside SVG for exact alignment */}
-                {regionDots.map((dot, i) => {
-                  const hasEvents = seasonEvents.some((e) => e.city === dot.name);
+                {/* Season-specific city dots */}
+                {seasonDotLabels.map((dot, i) => {
+                  const dotColor = seasonColors[activeSeason];
+                  const isRight = dot.side === 'right';
+                  const elbowX = isRight ? dot.x + 14 : dot.x - 14;
+                  const textX = isRight ? 398 : 102;
+                  const lineEndX = isRight ? textX - 6 : textX + 6;
                   return (
-                    <g key={dot.name}>
-                      {/* Pulse ring */}
-                      {hasEvents && (
-                        <motion.circle
-                          cx={dot.x}
-                          cy={dot.y}
-                          r={dot.r * 2.5}
-                          fill="none"
-                          stroke={`${seasonColors[activeSeason]}55`}
-                          strokeWidth="1"
-                          initial={{ r: dot.r, opacity: 0.7 }}
-                          animate={{ r: dot.r * 3, opacity: 0 }}
-                          transition={{ duration: 2, repeat: Infinity, delay: i * 0.12 }}
-                        />
-                      )}
-                      {/* Dot */}
+                    <g
+                      key={dot.city}
+                      onClick={() => {
+                        const params = new URLSearchParams();
+                        params.set('lat', String(dot.latitude));
+                        params.set('lng', String(dot.longitude));
+                        params.set('city', dot.city);
+                        params.set('season', activeSeason);
+                        navigate(`/results?${params.toString()}`);
+                      }}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <path
+                        d={`M ${dot.x} ${dot.y} L ${elbowX} ${dot.labelY} L ${lineEndX} ${dot.labelY}`}
+                        stroke={`${dotColor}80`}
+                        strokeWidth="1.4"
+                        fill="none"
+                        strokeLinecap="round"
+                      />
+
+                      <motion.circle
+                        cx={dot.x}
+                        cy={dot.y}
+                        r={dot.r * 2.5}
+                        fill="none"
+                        stroke={`${dotColor}55`}
+                        strokeWidth="1"
+                        initial={{ r: dot.r, opacity: 0.7 }}
+                        animate={{ r: dot.r * 3, opacity: 0 }}
+                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.12 }}
+                      />
+
                       <motion.circle
                         cx={dot.x}
                         cy={dot.y}
                         r={dot.r}
-                        fill={hasEvents ? seasonColors[activeSeason] : 'rgba(255,255,255,0.15)'}
+                        fill={dotColor}
                         initial={{ scale: 0 }}
-                        animate={{ scale: hasEvents ? 1 : 0.5 }}
+                        animate={{ scale: 1 }}
+                        whileHover={{ scale: 1.2 }}
                         transition={{ type: 'spring', delay: i * 0.08 }}
                         style={{
-                          filter: hasEvents
-                            ? `drop-shadow(0 0 6px ${seasonColors[activeSeason]}88)`
-                            : 'none',
+                          filter: `drop-shadow(0 0 6px ${dotColor}88)`,
                         }}
                       />
-                      {/* Label */}
+
+                      <circle
+                        cx={dot.x}
+                        cy={dot.y}
+                        r={12}
+                        fill="transparent"
+                      />
+
                       <text
-                        x={dot.x}
-                        y={dot.y - dot.r - 6}
-                        textAnchor="middle"
-                        fill={hasEvents ? seasonColors[activeSeason] : 'rgba(255,255,255,0.25)'}
-                        fontSize="11"
+                        x={textX}
+                        y={dot.labelY}
+                        dy="0.35em"
+                        textAnchor={isRight ? 'start' : 'end'}
+                        fill={dotColor}
+                        stroke="rgba(10,22,40,0.85)"
+                        strokeWidth="0.8"
+                        paintOrder="stroke"
+                        fontSize="10.5"
                         fontWeight="600"
                         fontFamily="Inter, sans-serif"
+                        pointerEvents="none"
                       >
-                        {dot.name}
+                        {dot.city}
                       </text>
                     </g>
                   );
                 })}
               </svg>
-          </div>
-
-          {/* Events list */}
-          <div className="flex-1 min-w-[220px]">
-            <h3 className="font-playfair text-xl text-white mb-5">
-              {seasons.find((s) => s.id === activeSeason)?.emoji}{' '}
-              {activeSeason.charAt(0).toUpperCase() + activeSeason.slice(1)} Events
-            </h3>
-            {seasonEvents.length === 0 ? (
-              <p className="text-white/40 text-sm">No events this season yet.</p>
-            ) : (
-              <div className="space-y-0">
-                {seasonEvents.map((event, i) => (
-                  <motion.div
-                    key={event.id}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.08 }}
-                    className="flex items-center gap-4 py-3.5 border-b border-white/8"
-                  >
-                    <div
-                      className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                      style={{ background: seasonColors[activeSeason] }}
-                    />
-                    <div>
-                      <span className="text-sm text-white/75 block">{event.name}</span>
-                      <small className="text-white/35 text-[0.75rem]">
-                        {event.city} · {new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-                      </small>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            )}
           </div>
         </div>
       </div>

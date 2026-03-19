@@ -83,7 +83,7 @@ export default function EventCard({ event, index = 0, onClick }) {
 
       {/* Body */}
       <div className="p-5 pb-6">
-        <h3 className="font-playfair text-lg font-bold text-navy mb-1.5 group-hover:text-gold-dark transition-colors">
+        <h3 className="font-playfair text-lg font-bold text-navy mb-1.5 group-hover:text-gold-dark transition-colors line-clamp-2">
           {event.name}
         </h3>
         <div className="flex gap-4 flex-wrap text-[0.8rem] text-gray-400 mb-3">
@@ -100,9 +100,9 @@ export default function EventCard({ event, index = 0, onClick }) {
         </p>
 
         {/* Sensory tags */}
-        <div className="flex gap-2 flex-wrap mb-4">
+        <div className="flex gap-2 flex-wrap mb-4 min-h-[2.5rem]">
           {event.sensory.map((s) => (
-            <span key={s} className="bg-navy/5 text-navy text-[0.72rem] font-semibold px-2.5 py-1 rounded-full">
+            <span key={s} className="bg-navy/5 text-navy text-[0.72rem] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
               {sensoryMap[s]?.emoji} {sensoryMap[s]?.label}
             </span>
           ))}

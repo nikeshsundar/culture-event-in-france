@@ -116,8 +116,8 @@ export default function EventModal({ event, onClose }) {
               <span className="gold-gradient text-navy text-[0.68rem] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                 {event.category}
               </span>
-              <h2 className="font-playfair text-3xl font-bold text-white mt-2">{event.name}</h2>
-              <p className="text-white/60 text-sm mt-1">{event.city}, {event.region}</p>
+              <h2 className="font-playfair text-3xl font-bold text-white mt-2 line-clamp-2">{event.name}</h2>
+              <p className="text-white/60 text-sm mt-1 truncate">{event.city}, {event.region}</p>
             </div>
           </div>
 

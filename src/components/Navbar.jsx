@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
-import { useTheme } from '../context/ThemeContext';
 
 const navLinks = [
   { path: '/', labelKey: 'discover' },
@@ -17,8 +16,6 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const { lang, toggleLang, t } = useLang();
-  const { theme, toggleTheme } = useTheme();
-  const isDark = theme === 'dark';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -83,15 +80,6 @@ export default function Navbar() {
           {lang === 'en' ? '🇬🇧 EN' : '🇫🇷 FR'}
         </button>
 
-        {/* Theme toggle */}
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-lg border border-white/15 text-white/70 hover:text-gold hover:border-gold/40 transition-all"
-          title={isDark ? 'Light mode' : 'Dark mode'}
-        >
-          {isDark ? <Sun size={16} /> : <Moon size={16} />}
-        </button>
-
         {/* CTA */}
         <Link
           to="/events"
@@ -136,12 +124,6 @@ export default function Navbar() {
                 className="px-3 py-1.5 rounded-lg border border-white/15 text-white/70 text-xs font-semibold"
               >
                 {lang === 'en' ? '🇬🇧 EN' : '🇫🇷 FR'}
-              </button>
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-lg border border-white/15 text-white/70"
-              >
-                {isDark ? <Sun size={16} /> : <Moon size={16} />}
               </button>
             </div>
             <Link

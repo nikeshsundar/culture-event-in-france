@@ -4,7 +4,6 @@ import SearchBar from '../components/SearchBar';
 import StatsBar from '../components/StatsBar';
 import FeaturesGrid from '../components/FeaturesGrid';
 import SeasonalMap from '../components/SeasonalMap';
-import TimeMachine from '../components/TimeMachine';
 import ImmersionScore from '../components/ImmersionScore';
 import RoutePlanner from '../components/RoutePlanner';
 import EventCard from '../components/EventCard';
@@ -69,9 +68,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Time Machine */}
-      <TimeMachine />
 
       {/* Route Planner */}
       <RoutePlanner />

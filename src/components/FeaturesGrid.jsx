@@ -72,8 +72,8 @@ export default function FeaturesGrid() {
               <div className="absolute top-0 left-0 right-0 h-[3px] gold-gradient" />
 
               <div className="text-4xl mb-5">{feat.icon}</div>
-              <h3 className="font-playfair text-xl font-bold text-navy mb-2.5">{feat.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">{feat.description}</p>
+              <h3 className="font-playfair text-xl font-bold text-navy mb-2.5 line-clamp-2">{feat.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed mb-4 line-clamp-3">{feat.description}</p>
               <span className="inline-block bg-gold/12 text-gold-dark text-[0.72rem] font-bold px-3 py-1 rounded-full tracking-wide uppercase">
                 {feat.badge}
               </span>

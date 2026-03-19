@@ -9,13 +9,20 @@
     "date": "2026-06-21",
     "endDate": "2026-06-21",
     "category": "Music",
-    "mood": ["artistic", "adventurous"],
-    "sensory": ["sound", "visual", "outdoor"],
+    "mood": [
+      "artistic",
+      "adventurous"
+    ],
+    "sensory": [
+      "sound",
+      "visual",
+      "outdoor"
+    ],
     "description": "France's national music celebration — free live performances across every street and genre.",
     "historicalNote": "Launched in 1982 by Jack Lang, Minister of Culture, as a way to bring music to every corner of France. What started as a Parisian idea has spread to over 120 countries.",
     "frenchPhrase": "La musique adoucit les mœurs",
     "phraseTranslation": "Music soothes the soul",
-    "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/1-fete-de-la-musique-paris/1600/900",
     "hiddenGem": false,
     "culturalDepth": 87,
     "season": "summer"
@@ -30,13 +37,19 @@
     "date": "2026-05-13",
     "endDate": "2026-05-24",
     "category": "Film",
-    "mood": ["artistic", "romantic"],
-    "sensory": ["visual", "historical"],
+    "mood": [
+      "artistic",
+      "romantic"
+    ],
+    "sensory": [
+      "visual",
+      "historical"
+    ],
     "description": "The world's most prestigious film festival with red carpets, premieres, and the legendary Palme d'Or.",
     "historicalNote": "Founded in 1946 as an alternative to the Venice Film Festival. The Palme d'Or has been awarded to legendary directors like Quentin Tarantino, Francis Ford Coppola, and Bong Joon-ho.",
     "frenchPhrase": "Le cinéma, c'est l'écriture moderne dont l'encre est la lumière",
     "phraseTranslation": "Cinema is modern writing whose ink is light — Jean Cocteau",
-    "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/2-cannes-film-festival-cannes/1600/900",
     "hiddenGem": false,
     "culturalDepth": 95,
     "season": "spring"
@@ -47,17 +60,24 @@
     "city": "Nice",
     "region": "Provence-Alpes-Côte d'Azur",
     "latitude": 43.7102,
-    "longitude": 7.2620,
+    "longitude": 7.262,
     "date": "2026-02-13",
     "endDate": "2026-02-28",
     "category": "Carnival",
-    "mood": ["adventurous", "artistic"],
-    "sensory": ["visual", "sound", "outdoor"],
+    "mood": [
+      "adventurous",
+      "artistic"
+    ],
+    "sensory": [
+      "visual",
+      "sound",
+      "outdoor"
+    ],
     "description": "Spectacular flower battles and illuminated parades with massive artistic floats on the Côte d'Azur.",
     "historicalNote": "Dating back to 1294, the Nice Carnival is one of the oldest in the world. The tradition of flower battles (Bataille de Fleurs) began in 1876.",
     "frenchPhrase": "La vie est un carnaval",
     "phraseTranslation": "Life is a carnival",
-    "image": "https://images.unsplash.com/photo-1551966775-a4ddc8df052b?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/3-nice-carnival-nice/1600/900",
     "hiddenGem": false,
     "culturalDepth": 82,
     "season": "winter"
@@ -72,13 +92,20 @@
     "date": "2026-07-14",
     "endDate": "2026-07-14",
     "category": "National Holiday",
-    "mood": ["adventurous", "romantic"],
-    "sensory": ["visual", "sound", "outdoor"],
+    "mood": [
+      "adventurous",
+      "romantic"
+    ],
+    "sensory": [
+      "visual",
+      "sound",
+      "outdoor"
+    ],
     "description": "Military parade on the Champs-Élysées and breathtaking fireworks at the Eiffel Tower.",
     "historicalNote": "Celebrates the storming of the Bastille on July 14, 1789 — the pivotal moment of the French Revolution and the birth of modern democracy in France.",
     "frenchPhrase": "Liberté, Égalité, Fraternité",
     "phraseTranslation": "Liberty, Equality, Fraternity",
-    "image": "https://images.unsplash.com/photo-1549144511-f099e773c147?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/4-bastille-day-celebrations-paris/1600/900",
     "hiddenGem": false,
     "culturalDepth": 96,
     "season": "summer"
@@ -88,18 +115,23 @@
     "name": "Fête des Lumières",
     "city": "Lyon",
     "region": "Auvergne-Rhône-Alpes",
-    "latitude": 45.7640,
+    "latitude": 45.764,
     "longitude": 4.8357,
     "date": "2026-12-05",
     "endDate": "2026-12-08",
     "category": "Light Festival",
-    "mood": ["romantic", "peaceful"],
-    "sensory": ["visual"],
+    "mood": [
+      "romantic",
+      "peaceful"
+    ],
+    "sensory": [
+      "visual"
+    ],
     "description": "Lyon transforms into an open-air gallery with stunning light installations and projections.",
     "historicalNote": "Originated in 1852 when citizens spontaneously lit candles in their windows to celebrate the Virgin Mary. Today it attracts 4 million visitors over 4 nights.",
     "frenchPhrase": "La lumière est le premier des peintres",
     "phraseTranslation": "Light is the first of all painters",
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/5-fete-des-lumieres-lyon/1600/900",
     "hiddenGem": false,
     "culturalDepth": 88,
     "season": "winter"
@@ -114,13 +146,20 @@
     "date": "2026-07-04",
     "endDate": "2026-07-24",
     "category": "Theatre",
-    "mood": ["artistic", "peaceful"],
-    "sensory": ["visual", "sound", "historical"],
+    "mood": [
+      "artistic",
+      "peaceful"
+    ],
+    "sensory": [
+      "visual",
+      "sound",
+      "historical"
+    ],
     "description": "Over 1,000 shows in medieval Avignon — from contemporary theatre to performances in the Palace of the Popes.",
     "historicalNote": "Founded in 1947 by Jean Vilar in the courtyard of the Palace of the Popes. It revolutionized French theatre by making it accessible to all social classes.",
     "frenchPhrase": "Tout le monde est un théâtre",
     "phraseTranslation": "All the world is a stage",
-    "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/6-avignon-theatre-festival-avignon/1600/900",
     "hiddenGem": false,
     "culturalDepth": 91,
     "season": "summer"
@@ -135,13 +174,21 @@
     "date": "2026-06-25",
     "endDate": "2026-06-28",
     "category": "Food & Wine",
-    "mood": ["romantic", "peaceful", "gourmet"],
-    "sensory": ["taste", "sound", "outdoor"],
+    "mood": [
+      "romantic",
+      "peaceful",
+      "gourmet"
+    ],
+    "sensory": [
+      "taste",
+      "sound",
+      "outdoor"
+    ],
     "description": "Taste hundreds of wines from legendary Bordeaux châteaux along the Garonne river.",
     "historicalNote": "Bordeaux has been a wine capital since Roman times. The region's 7,000 châteaux produce over 700 million bottles annually, making it the world's finest wine region.",
     "frenchPhrase": "Dans le vin, il y a la vérité",
     "phraseTranslation": "In wine, there is truth",
-    "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/7-bordeaux-wine-festival-bordeaux/1600/900",
     "hiddenGem": false,
     "culturalDepth": 79,
     "season": "summer"
@@ -156,13 +203,20 @@
     "date": "2026-11-27",
     "endDate": "2026-12-27",
     "category": "Market",
-    "mood": ["romantic", "peaceful"],
-    "sensory": ["taste", "visual", "outdoor"],
+    "mood": [
+      "romantic",
+      "peaceful"
+    ],
+    "sensory": [
+      "taste",
+      "visual",
+      "outdoor"
+    ],
     "description": "France's oldest Christmas market (1570) with twinkling stalls, mulled wine, and Alsatian specialties.",
     "historicalNote": "Founded in 1570, the Christkindelsmärik is the oldest Christmas market in France and one of the oldest in Europe. Strasbourg proudly holds the title 'Capital of Christmas.'",
     "frenchPhrase": "Noël n'est pas un jour ni une saison. C'est un état d'esprit",
     "phraseTranslation": "Christmas is not a day or a season. It's a state of mind",
-    "image": "https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/8-strasbourg-christmas-market-strasbourg/1600/900",
     "hiddenGem": false,
     "culturalDepth": 84,
     "season": "winter"
@@ -177,13 +231,18 @@
     "date": "2026-03-02",
     "endDate": "2026-03-10",
     "category": "Fashion",
-    "mood": ["artistic", "romantic"],
-    "sensory": ["visual"],
+    "mood": [
+      "artistic",
+      "romantic"
+    ],
+    "sensory": [
+      "visual"
+    ],
     "description": "Top designers showcase their latest haute couture creations in the fashion capital of the world.",
     "historicalNote": "Paris has been the fashion capital since the 17th century when Louis XIV's court set trends for all of Europe. Paris Fashion Week began formally in 1973.",
     "frenchPhrase": "La mode se démode, le style jamais",
     "phraseTranslation": "Fashion fades, style is eternal — Yves Saint Laurent",
-    "image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/9-paris-fashion-week-paris/1600/900",
     "hiddenGem": false,
     "culturalDepth": 76,
     "season": "spring"
@@ -198,13 +257,20 @@
     "date": "2026-02-14",
     "endDate": "2026-03-01",
     "category": "Festival",
-    "mood": ["adventurous", "peaceful"],
-    "sensory": ["visual", "taste", "outdoor"],
+    "mood": [
+      "adventurous",
+      "peaceful"
+    ],
+    "sensory": [
+      "visual",
+      "taste",
+      "outdoor"
+    ],
     "description": "Massive sculptures made of lemons and oranges fill the gardens with citrus float parades.",
     "historicalNote": "Started in 1934 when Menton was the largest lemon producer in Europe. Each year uses over 140 tonnes of citrus fruit to create the stunning displays.",
     "frenchPhrase": "Quand la vie te donne des citrons, fais de la limonade",
     "phraseTranslation": "When life gives you lemons, make lemonade",
-    "image": "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/10-lemon-festival-of-menton-menton/1600/900",
     "hiddenGem": true,
     "culturalDepth": 72,
     "season": "winter"
@@ -219,13 +285,18 @@
     "date": "2026-07-29",
     "endDate": "2026-08-15",
     "category": "Music",
-    "mood": ["peaceful", "artistic"],
-    "sensory": ["sound"],
+    "mood": [
+      "peaceful",
+      "artistic"
+    ],
+    "sensory": [
+      "sound"
+    ],
     "description": "A tiny Gers village becomes Europe's jazz capital — world-class musicians under the stars.",
     "historicalNote": "Founded in 1978 in a village of just 1,300 people. Has hosted legends like Dizzy Gillespie, Wynton Marsalis, and Diana Krall. Proof that great culture needs no big city.",
     "frenchPhrase": "Le jazz, c'est la liberté",
     "phraseTranslation": "Jazz is freedom",
-    "image": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/11-jazz-in-marciac-marciac/1600/900",
     "hiddenGem": true,
     "culturalDepth": 85,
     "season": "summer"
@@ -240,13 +311,18 @@
     "date": "2026-08-24",
     "endDate": "2026-08-30",
     "category": "Sports",
-    "mood": ["adventurous"],
-    "sensory": ["outdoor", "visual"],
+    "mood": [
+      "adventurous"
+    ],
+    "sensory": [
+      "outdoor",
+      "visual"
+    ],
     "description": "170km ultra-trail around Mont-Blanc through France, Italy, and Switzerland.",
     "historicalNote": "The UTMB was created in 2003 and has grown into the world's most prestigious ultra-trail race, attracting 10,000 runners from 100+ countries.",
     "frenchPhrase": "La montagne enseigne ce que les livres ne peuvent pas",
     "phraseTranslation": "The mountain teaches what books cannot",
-    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/12-mont-blanc-ultra-trail-chamonix/1600/900",
     "hiddenGem": false,
     "culturalDepth": 68,
     "season": "summer"
@@ -261,13 +337,19 @@
     "date": "2026-07-19",
     "endDate": "2026-07-19",
     "category": "Sports",
-    "mood": ["adventurous"],
-    "sensory": ["visual", "sound", "outdoor"],
+    "mood": [
+      "adventurous"
+    ],
+    "sensory": [
+      "visual",
+      "sound",
+      "outdoor"
+    ],
     "description": "The grand finale — the peloton sprints down the Champs-Élysées to crown the yellow jersey winner.",
     "historicalNote": "The Tour de France began in 1903 to boost newspaper sales. It has become the most watched annual sporting event in the world with 3.5 billion TV viewers.",
     "frenchPhrase": "Le vélo est la plus noble invention de l'humanité",
     "phraseTranslation": "The bicycle is humanity's noblest invention",
-    "image": "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/13-tour-de-france-paris-finish-paris/1600/900",
     "hiddenGem": false,
     "culturalDepth": 74,
     "season": "summer"
@@ -277,18 +359,24 @@
     "name": "Épernay Champagne Harvest Festival",
     "city": "Épernay",
     "region": "Grand Est",
-    "latitude": 49.0400,
-    "longitude": 3.9530,
+    "latitude": 49.04,
+    "longitude": 3.953,
     "date": "2026-10-10",
     "endDate": "2026-10-11",
     "category": "Food & Wine",
-    "mood": ["gourmet", "romantic"],
-    "sensory": ["taste", "visual"],
+    "mood": [
+      "gourmet",
+      "romantic"
+    ],
+    "sensory": [
+      "taste",
+      "visual"
+    ],
     "description": "Champagne cellar tours, tastings from legendary houses on the Avenue de Champagne.",
     "historicalNote": "Épernay's Avenue de Champagne is called 'the most drinkable street in the world.' Beneath it lie 110km of champagne cellars holding millions of bottles.",
     "frenchPhrase": "Je ne bois que du champagne quand je suis heureuse et quand je suis triste",
     "phraseTranslation": "I drink champagne when I'm happy and when I'm sad — Madame Bollinger",
-    "image": "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/14-epernay-champagne-harvest-festival-epernay/1600/900",
     "hiddenGem": true,
     "culturalDepth": 80,
     "season": "autumn"
@@ -303,13 +391,19 @@
     "date": "2026-06-10",
     "endDate": "2026-06-20",
     "category": "Art",
-    "mood": ["artistic", "adventurous"],
-    "sensory": ["visual", "outdoor"],
+    "mood": [
+      "artistic",
+      "adventurous"
+    ],
+    "sensory": [
+      "visual",
+      "outdoor"
+    ],
     "description": "International street artists transform Marseille's walls and alleyways into urban masterpieces.",
     "historicalNote": "Marseille, France's oldest city (600 BC), has reinvented itself as a cultural hotspot. After being European Capital of Culture in 2013, its street art scene has exploded.",
     "frenchPhrase": "L'art est partout, il suffit de regarder",
     "phraseTranslation": "Art is everywhere, you just have to look",
-    "image": "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/15-marseille-street-art-festival-marseille/1600/900",
     "hiddenGem": true,
     "culturalDepth": 77,
     "season": "summer"
@@ -324,13 +418,19 @@
     "date": "2026-10-03",
     "endDate": "2026-10-04",
     "category": "Art",
-    "mood": ["artistic", "adventurous"],
-    "sensory": ["visual", "sound"],
+    "mood": [
+      "artistic",
+      "adventurous"
+    ],
+    "sensory": [
+      "visual",
+      "sound"
+    ],
     "description": "Paris stays awake all night — free art installations and performances from sunset to sunrise.",
     "historicalNote": "Created in 2002 by the City of Paris. Nuit Blanche (White Night) has inspired similar events in over 30 cities worldwide including Toronto, Brussels, and Melbourne.",
     "frenchPhrase": "Paris est toujours une bonne idée",
     "phraseTranslation": "Paris is always a good idea — Audrey Hepburn",
-    "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/16-nuit-blanche-paris/1600/900",
     "hiddenGem": false,
     "culturalDepth": 83,
     "season": "autumn"
@@ -345,13 +445,20 @@
     "date": "2026-07-06",
     "endDate": "2026-08-05",
     "category": "Music",
-    "mood": ["romantic", "peaceful"],
-    "sensory": ["sound", "historical", "visual"],
+    "mood": [
+      "romantic",
+      "peaceful"
+    ],
+    "sensory": [
+      "sound",
+      "historical",
+      "visual"
+    ],
     "description": "Opera and classical concerts in the ancient Roman Theatre of Orange with legendary acoustics.",
     "historicalNote": "The Chorégies d'Orange is the oldest active festival in France, dating back to 1869. The Roman theatre was built in the 1st century AD.",
     "frenchPhrase": "La musique est la langue des émotions",
     "phraseTranslation": "Music is the language of emotions — Emmanuel Kant",
-    "image": "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/17-les-choregies-d-orange-orange/1600/900",
     "hiddenGem": true,
     "culturalDepth": 93,
     "season": "summer"
@@ -366,13 +473,19 @@
     "date": "2026-07-19",
     "endDate": "2026-07-19",
     "category": "Festival",
-    "mood": ["peaceful", "romantic"],
-    "sensory": ["outdoor", "visual"],
+    "mood": [
+      "peaceful",
+      "romantic"
+    ],
+    "sensory": [
+      "outdoor",
+      "visual"
+    ],
     "description": "Endless purple lavender fields with local markets, distillery visits, and Provençal charm.",
     "historicalNote": "Provençal lavender cultivation dates to the 1920s. The Valensole plateau is the largest lavender-growing area in France, producing essential oils prized worldwide.",
     "frenchPhrase": "La Provence est un poème que le soleil a écrit",
     "phraseTranslation": "Provence is a poem written by the sun",
-    "image": "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/18-lavender-festival-of-valensole-valensole/1600/900",
     "hiddenGem": true,
     "culturalDepth": 71,
     "season": "summer"
@@ -387,13 +500,18 @@
     "date": "2026-01-06",
     "endDate": "2026-01-31",
     "category": "Food & Wine",
-    "mood": ["peaceful", "gourmet"],
-    "sensory": ["taste"],
+    "mood": [
+      "peaceful",
+      "gourmet"
+    ],
+    "sensory": [
+      "taste"
+    ],
     "description": "France celebrates Epiphany with the Galette des Rois — find the hidden figurine and become king!",
     "historicalNote": "This tradition dates to the 14th century. The Élysée Palace receives a giant galette each year — but one without a figurine, because 'the President should not be crowned.'",
     "frenchPhrase": "Qui mange la fève est roi",
     "phraseTranslation": "Whoever finds the charm is king",
-    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/19-galette-des-rois-season-paris/1600/900",
     "hiddenGem": true,
     "culturalDepth": 78,
     "season": "winter"
@@ -403,18 +521,24 @@
     "name": "Fête de la Gastronomie",
     "city": "Lyon",
     "region": "Auvergne-Rhône-Alpes",
-    "latitude": 45.7640,
+    "latitude": 45.764,
     "longitude": 4.8357,
     "date": "2026-09-25",
     "endDate": "2026-09-27",
     "category": "Food & Wine",
-    "mood": ["gourmet", "peaceful"],
-    "sensory": ["taste", "visual"],
+    "mood": [
+      "gourmet",
+      "peaceful"
+    ],
+    "sensory": [
+      "taste",
+      "visual"
+    ],
     "description": "Lyon celebrates its culinary heritage with chef demos, market tours, and truffle tastings.",
     "historicalNote": "Lyon's bouchon tradition dates to the 16th century. The city has more restaurants per capita than any French city and was home to Paul Bocuse, the 'Chef of the Century.'",
     "frenchPhrase": "Dis-moi ce que tu manges, je te dirai qui tu es",
     "phraseTranslation": "Tell me what you eat, and I'll tell you who you are — Brillat-Savarin",
-    "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/20-fete-de-la-gastronomie-lyon/1600/900",
     "hiddenGem": false,
     "culturalDepth": 86,
     "season": "autumn"
@@ -424,18 +548,25 @@
     "name": "Mont Saint-Michel High Tides",
     "city": "Le Mont-Saint-Michel",
     "region": "Normandy",
-    "latitude": 48.6360,
+    "latitude": 48.636,
     "longitude": -1.5115,
     "date": "2026-03-21",
     "endDate": "2026-03-22",
     "category": "Nature",
-    "mood": ["peaceful", "adventurous"],
-    "sensory": ["visual", "sound", "outdoor"],
+    "mood": [
+      "peaceful",
+      "adventurous"
+    ],
+    "sensory": [
+      "visual",
+      "sound",
+      "outdoor"
+    ],
     "description": "Witness the abbey become an island again during the equinox supertides — nature's grandest spectacle in Europe.",
     "historicalNote": "The abbey was founded in 708 AD. For centuries, pilgrims waited for low tide to cross the treacherous sands, giving it the nickname 'St. Michael in peril of the sea.'",
     "frenchPhrase": "La marée n'attend personne",
     "phraseTranslation": "The tide waits for no one",
-    "image": "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/21-mont-saint-michel-high-tides-le-mont-saint-michel/1600/900",
     "hiddenGem": false,
     "culturalDepth": 92,
     "season": "spring"
@@ -450,13 +581,20 @@
     "date": "2026-08-07",
     "endDate": "2026-08-16",
     "category": "Festival",
-    "mood": ["adventurous", "artistic"],
-    "sensory": ["sound", "visual", "taste"],
+    "mood": [
+      "adventurous",
+      "artistic"
+    ],
+    "sensory": [
+      "sound",
+      "visual",
+      "taste"
+    ],
     "description": "The world's largest gathering of Celtic nations with 4,500 artists, bagpipes, and massive parades.",
     "historicalNote": "Founded in 1971, it celebrates the cultural links between Brittany, Scotland, Ireland, Wales, Cornwall, and Galicia. Attracts over 800,000 visitors annually.",
     "frenchPhrase": "Breizh da viken",
     "phraseTranslation": "Brittany forever (Breton)",
-    "image": "https://images.unsplash.com/photo-1528659578160-5f0423925769?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/22-inter-celtic-festival-of-lorient-lorient/1600/900",
     "hiddenGem": false,
     "culturalDepth": 89,
     "season": "summer"
@@ -471,13 +609,20 @@
     "date": "2026-07-29",
     "endDate": "2026-08-02",
     "category": "Festival",
-    "mood": ["adventurous", "gourmet"],
-    "sensory": ["sound", "taste", "outdoor"],
+    "mood": [
+      "adventurous",
+      "gourmet"
+    ],
+    "sensory": [
+      "sound",
+      "taste",
+      "outdoor"
+    ],
     "description": "France's biggest party — 1 million people dressed in white with red scarves celebrating Basque culture.",
     "historicalNote": "The tradition began in 1932, inspired by Pamplona's San Fermín. The city keys are thrown from the town hall balcony to the crowd to open the 5-day celebration.",
     "frenchPhrase": "Egun on, Euskal Herria",
     "phraseTranslation": "Good morning, Basque Country (Basque)",
-    "image": "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/23-fetes-de-bayonne-bayonne/1600/900",
     "hiddenGem": false,
     "culturalDepth": 85,
     "season": "summer"
@@ -492,13 +637,20 @@
     "date": "2026-07-02",
     "endDate": "2026-07-31",
     "category": "Music",
-    "mood": ["romantic", "artistic"],
-    "sensory": ["visual", "sound", "historical"],
+    "mood": [
+      "romantic",
+      "artistic"
+    ],
+    "sensory": [
+      "visual",
+      "sound",
+      "historical"
+    ],
     "description": "Concerts and theatre inside the UNESCO-listed medieval fortress walls under the stars.",
     "historicalNote": "Carcassonne is Europe's largest fortified city. The festival takes place in the Jean-Deschamps Theatre, nestled within the ancient double walls built in the 13th century.",
     "frenchPhrase": "Il ne faut pas mourir sans avoir vu Carcassonne",
     "phraseTranslation": "One must not die without seeing Carcassonne — Nadaud",
-    "image": "https://images.unsplash.com/photo-1594898144200-a9254c46f12e?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/24-carcassonne-festival-carcassonne/1600/900",
     "hiddenGem": false,
     "culturalDepth": 94,
     "season": "summer"
@@ -513,13 +665,19 @@
     "date": "2026-06-13",
     "endDate": "2026-06-14",
     "category": "Sports",
-    "mood": ["adventurous"],
-    "sensory": ["sound", "visual", "outdoor"],
+    "mood": [
+      "adventurous"
+    ],
+    "sensory": [
+      "sound",
+      "visual",
+      "outdoor"
+    ],
     "description": "The world's oldest and most famous endurance car race — a test of speed and stamina.",
     "historicalNote": "First held in 1923, it is the ultimate test of man and machine. The 'Mulsanne Straight' allowed cars to reach 400 km/h before chicanes were added in 1990.",
     "frenchPhrase": "La course, c'est la vie",
     "phraseTranslation": "Racing is life — Steve McQueen",
-    "image": "https://images.unsplash.com/photo-1588667822000-848e0266e70a?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/25-24-hours-of-le-mans-le-mans/1600/900",
     "hiddenGem": false,
     "culturalDepth": 81,
     "season": "spring"
@@ -534,13 +692,19 @@
     "date": "2026-11-01",
     "endDate": "2026-11-01",
     "category": "Sports",
-    "mood": ["adventurous", "peaceful"],
-    "sensory": ["visual", "outdoor"],
+    "mood": [
+      "adventurous",
+      "peaceful"
+    ],
+    "sensory": [
+      "visual",
+      "outdoor"
+    ],
     "description": "Watch the majestic departure of giant trimarans for the legendary solo transatlantic race to Guadeloupe.",
     "historicalNote": "Held every 4 years since 1978. It is France's most popular sailing event, with over 2 million spectators gathering on the coast to watch the start.",
     "frenchPhrase": "Homme libre, toujours tu chériras la mer",
     "phraseTranslation": "Free man, you will always cherish the sea — Baudelaire",
-    "image": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/26-route-du-rhum-departure-saint-malo/1600/900",
     "hiddenGem": false,
     "culturalDepth": 83,
     "season": "autumn"
@@ -555,13 +719,18 @@
     "date": "2026-06-15",
     "endDate": "2026-06-20",
     "category": "Film",
-    "mood": ["artistic", "peaceful"],
-    "sensory": ["visual"],
+    "mood": [
+      "artistic",
+      "peaceful"
+    ],
+    "sensory": [
+      "visual"
+    ],
     "description": "The 'Cannes of Animation' — open-air screenings by the lake and world premieres.",
     "historicalNote": "Founded in 1960. Disney, Pixar, and Ghibli often premiere films here. The nightly outdoor screenings on the Pâquier lawn beside the lake are legendary.",
     "frenchPhrase": "L'imagination est plus importante que le savoir",
     "phraseTranslation": "Imagination is more important than knowledge",
-    "image": "https://images.unsplash.com/photo-1499678329028-101435549a4e?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/27-annecy-animation-festival-annecy/1600/900",
     "hiddenGem": true,
     "culturalDepth": 79,
     "season": "spring"
@@ -576,13 +745,20 @@
     "date": "2026-05-01",
     "endDate": "2026-05-03",
     "category": "History",
-    "mood": ["adventurous", "artistic"],
-    "sensory": ["visual", "sound", "historical"],
+    "mood": [
+      "adventurous",
+      "artistic"
+    ],
+    "sensory": [
+      "visual",
+      "sound",
+      "historical"
+    ],
     "description": "Europe's biggest historical reenactment in the world's best-preserved Roman amphitheatre.",
     "historicalNote": "Nîmes was a major Roman colony. The Games feature 500 reenactors from all over Europe recreating gladiator fights and chariot races with historical accuracy.",
     "frenchPhrase": "Veni, vidi, vici",
     "phraseTranslation": "I came, I saw, I conquered — Julius Caesar",
-    "image": "https://images.unsplash.com/photo-1552554623-1d2a1b1836a0?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/28-great-roman-games-nimes/1600/900",
     "hiddenGem": true,
     "culturalDepth": 90,
     "season": "spring"
@@ -597,13 +773,20 @@
     "date": "2026-06-13",
     "endDate": "2026-06-14",
     "category": "Festival",
-    "mood": ["adventurous", "peaceful"],
-    "sensory": ["visual", "taste", "technical"],
+    "mood": [
+      "adventurous",
+      "peaceful"
+    ],
+    "sensory": [
+      "visual",
+      "taste",
+      "technical"
+    ],
     "description": "Step back into the Middle Ages with knights, troubadours, and artisans in a UNESCO walled city.",
     "historicalNote": "Provins was a major trade hub in the 12th century, famous for its fairs. The festival is the largest medieval fair in France, attracting 100,000 costumed visitors.",
     "frenchPhrase": "Oyez, oyez, braves gens !",
     "phraseTranslation": "Hear ye, hear ye, good people!",
-    "image": "https://images.unsplash.com/photo-1605806616949-1e87b487bc2a?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/29-provins-medieval-festival-provins/1600/900",
     "hiddenGem": true,
     "culturalDepth": 87,
     "season": "spring"
@@ -618,13 +801,19 @@
     "date": "2026-09-04",
     "endDate": "2026-09-13",
     "category": "Film",
-    "mood": ["artistic", "romantic"],
-    "sensory": ["visual", "peaceful"],
+    "mood": [
+      "artistic",
+      "romantic"
+    ],
+    "sensory": [
+      "visual",
+      "peaceful"
+    ],
     "description": "Hollywood comes to Normandy — stars, plush beach huts, and American cinema premieres.",
     "historicalNote": "Founded in 1975. Deauville's beach boardwalk is lined with cabins bearing the names of Hollywood legends who have visited, like Clint Eastwood and Morgan Freeman.",
     "frenchPhrase": "Le cinéma est un rêve éveillé",
     "phraseTranslation": "Cinema is a waking dream",
-    "image": "https://images.unsplash.com/photo-1511193311914-0346f16eba77?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/30-deauville-american-film-festival-deauville/1600/900",
     "hiddenGem": true,
     "culturalDepth": 75,
     "season": "autumn"
@@ -639,13 +828,19 @@
     "date": "2026-06-21",
     "endDate": "2026-06-21",
     "category": "Music",
-    "mood": ["festive", "energetic"],
-    "sensory": ["sound", "visual"],
+    "mood": [
+      "festive",
+      "energetic"
+    ],
+    "sensory": [
+      "sound",
+      "visual"
+    ],
     "description": "Celebrated on the summer solstice, free concerts take over every street corner, bar, and park in France.",
     "historicalNote": "Initiated by Jack Lang in 1982 to democratize music. It is now celebrated in over 120 countries worldwide.",
     "frenchPhrase": "Faites de la musique !",
     "phraseTranslation": "Make music! (A play on words with Fête de la Musique)",
-    "image": "https://images.unsplash.com/photo-1514525253440-b393452e8d26?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/31-fete-de-la-musique-paris/1600/900",
     "hiddenGem": false,
     "culturalDepth": 90,
     "season": "summer"
@@ -656,17 +851,23 @@
     "city": "Paris",
     "region": "Île-de-France",
     "latitude": 48.8738,
-    "longitude": 2.2950,
+    "longitude": 2.295,
     "date": "2026-07-26",
     "endDate": "2026-07-26",
     "category": "Sports",
-    "mood": ["energetic", "patriotic"],
-    "sensory": ["visual", "sound"],
+    "mood": [
+      "energetic",
+      "patriotic"
+    ],
+    "sensory": [
+      "visual",
+      "sound"
+    ],
     "description": "The world's most famous cycling race concludes with a sprint finish on the Champs-Élysées.",
     "historicalNote": "The first Tour was in 1903. The finish on the Champs-Élysées has been a tradition since 1975.",
     "frenchPhrase": "La Grande Boucle",
     "phraseTranslation": "The Big Loop (Nickname for the Tour de France)",
-    "image": "https://images.unsplash.com/photo-1563299796-b729d0af54a5?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/32-tour-de-france-final-stage-paris/1600/900",
     "hiddenGem": false,
     "culturalDepth": 85,
     "season": "summer"
@@ -681,13 +882,19 @@
     "date": "2026-07-04",
     "endDate": "2026-07-25",
     "category": "Theater",
-    "mood": ["artistic", "intellectual"],
-    "sensory": ["visual", "sound"],
+    "mood": [
+      "artistic",
+      "intellectual"
+    ],
+    "sensory": [
+      "visual",
+      "sound"
+    ],
     "description": "One of the world's greatest theater festivals, held in the courtyard of the Popes' Palace and various locations.",
     "historicalNote": "Founded in 1947 by Jean Vilar. The 'In' festival is official, while the 'Off' festival fills the streets with thousands of independent shows.",
     "frenchPhrase": "Le monde entier est un théâtre",
     "phraseTranslation": "All the world's a stage",
-    "image": "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/33-festival-d-avignon-avignon/1600/900",
     "hiddenGem": false,
     "culturalDepth": 95,
     "season": "summer"
@@ -698,17 +905,23 @@
     "city": "Nice",
     "region": "Provence-Alpes-Côte d'Azur",
     "latitude": 43.7102,
-    "longitude": 7.2620,
+    "longitude": 7.262,
     "date": "2026-02-14",
     "endDate": "2026-03-02",
     "category": "Festival",
-    "mood": ["festive", "energetic"],
-    "sensory": ["visual", "sound"],
+    "mood": [
+      "festive",
+      "energetic"
+    ],
+    "sensory": [
+      "visual",
+      "sound"
+    ],
     "description": "Giant floats, flower battles, and illuminated parades on the French Riviera.",
     "historicalNote": "One of the oldest carnivals in the world, mentioned as early as 1294. The 'Battle of Flowers' highlights the region's floral production.",
     "frenchPhrase": "La vie est une fête",
     "phraseTranslation": "Life is a party",
-    "image": "https://images.unsplash.com/photo-1581958226065-5f50228e3526?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/34-nice-carnival-nice/1600/900",
     "hiddenGem": false,
     "culturalDepth": 88,
     "season": "winter"
@@ -723,13 +936,19 @@
     "date": "2026-02-14",
     "endDate": "2026-03-01",
     "category": "Festival",
-    "mood": ["cheerful", "fragrant"],
-    "sensory": ["visual", "smell"],
+    "mood": [
+      "cheerful",
+      "fragrant"
+    ],
+    "sensory": [
+      "visual",
+      "smell"
+    ],
     "description": "Unique festival featuring sculptures made entirely of lemons and oranges.",
     "historicalNote": "Started in 1934 to promote Menton's citrus industry. Over 140 tons of citrus fruit are used for the displays.",
     "frenchPhrase": "Un zeste de folie",
     "phraseTranslation": "A zest of madness",
-    "image": "https://images.unsplash.com/photo-1519092497179-eeb5e12a0d6f?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/35-menton-lemon-festival-menton/1600/900",
     "hiddenGem": true,
     "culturalDepth": 80,
     "season": "winter"
@@ -739,18 +958,23 @@
     "name": "Fête des Lumières",
     "city": "Lyon",
     "region": "Auvergne-Rhône-Alpes",
-    "latitude": 45.7640,
+    "latitude": 45.764,
     "longitude": 4.8357,
     "date": "2026-12-05",
     "endDate": "2026-12-08",
     "category": "Art",
-    "mood": ["magical", "romantic"],
-    "sensory": ["visual"],
+    "mood": [
+      "magical",
+      "romantic"
+    ],
+    "sensory": [
+      "visual"
+    ],
     "description": "Lyon lights up for four nights with spectacular light installations on monuments and buildings.",
     "historicalNote": "Originates from a 1643 promise to the Virgin Mary to save the city from plague. Locals place candles in their windows on December 8th.",
     "frenchPhrase": "Lumière sur la ville",
     "phraseTranslation": "Light on the city",
-    "image": "https://images.unsplash.com/photo-1514757041726-21a41bb4801e?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/36-fete-des-lumieres-lyon/1600/900",
     "hiddenGem": false,
     "culturalDepth": 92,
     "season": "winter"
@@ -765,13 +989,20 @@
     "date": "2026-11-27",
     "endDate": "2026-12-24",
     "category": "Market",
-    "mood": ["festive", "cozy"],
-    "sensory": ["smell", "taste", "visual"],
+    "mood": [
+      "festive",
+      "cozy"
+    ],
+    "sensory": [
+      "smell",
+      "taste",
+      "visual"
+    ],
     "description": "The 'Capital of Christmas' hosts France's oldest and most famous Christmas market.",
     "historicalNote": "Established in 1570 as the 'Christkindelsmärik'. The Great Christmas Tree in Place Kléber is a central symbol.",
     "frenchPhrase": "Joyeux Noël",
     "phraseTranslation": "Merry Christmas",
-    "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/37-strasbourg-christmas-market-strasbourg/1600/900",
     "hiddenGem": false,
     "culturalDepth": 95,
     "season": "winter"
@@ -786,13 +1017,19 @@
     "date": "2026-06-18",
     "endDate": "2026-06-21",
     "category": "Food & Wine",
-    "mood": ["gourmet", "relaxed"],
-    "sensory": ["taste", "smell"],
+    "mood": [
+      "gourmet",
+      "relaxed"
+    ],
+    "sensory": [
+      "taste",
+      "smell"
+    ],
     "description": "A 2km wine trail along the Garonne river celebrating Bordeaux and Aquitaine wines.",
     "historicalNote": "Held biennially (even years). Visitors buy a tasting pass and sample wines from over 80 appellations.",
     "frenchPhrase": "À votre santé !",
     "phraseTranslation": "To your health!",
-    "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/38-bordeaux-wine-festival-bordeaux/1600/900",
     "hiddenGem": false,
     "culturalDepth": 88,
     "season": "summer"
@@ -807,13 +1044,19 @@
     "date": "2026-01-15",
     "endDate": "2026-03-01",
     "category": "Festival",
-    "mood": ["wild", "energetic"],
-    "sensory": ["sound", "visual"],
+    "mood": [
+      "wild",
+      "energetic"
+    ],
+    "sensory": [
+      "sound",
+      "visual"
+    ],
     "description": "A raucous, community-driven carnival where locals dress in drag and march behind drum majors, celebrating fishermen.",
     "historicalNote": "Dates back to the 17th century as a feast for fishermen leaving for Iceland. Famous for the 'herring throw' from the city hall balcony.",
     "frenchPhrase": "Chahut !",
     "phraseTranslation": "Ruckus / Heckling!",
-    "image": "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/39-dunkirk-carnival-dunkirk/1600/900",
     "hiddenGem": true,
     "culturalDepth": 85,
     "season": "winter"
@@ -828,13 +1071,19 @@
     "date": "2026-07-10",
     "endDate": "2026-08-05",
     "category": "Music",
-    "mood": ["artistic", "historical"],
-    "sensory": ["sound", "visual"],
+    "mood": [
+      "artistic",
+      "historical"
+    ],
+    "sensory": [
+      "sound",
+      "visual"
+    ],
     "description": "The oldest festival in France, featuring opera and classical music in a Roman theater.",
     "historicalNote": "Created in 1869. The Roman Theatre's acoustic wall provides exceptional sound quality without amplification.",
     "frenchPhrase": "L'art lyrique",
     "phraseTranslation": "Lyric art (Opera)",
-    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/40-choregies-d-orange-orange/1600/900",
     "hiddenGem": true,
     "culturalDepth": 91,
     "season": "summer"
@@ -849,13 +1098,19 @@
     "date": "2026-06-13",
     "endDate": "2026-09-19",
     "category": "History",
-    "mood": ["romantic", "magical"],
-    "sensory": ["visual", "sound"],
+    "mood": [
+      "romantic",
+      "magical"
+    ],
+    "sensory": [
+      "visual",
+      "sound"
+    ],
     "description": "The gardens of the Château come alive with illuminated fountains and baroque music fireworks.",
     "historicalNote": "Recreates the grand fêtes of Louis XIV. The hydraulic system is still largely the original one from the 17th century.",
     "frenchPhrase": "Le Roi Soleil",
     "phraseTranslation": "The Sun King",
-    "image": "https://images.unsplash.com/photo-1566838318109-a8bffb91d082?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/41-versailles-fountains-night-show-versailles/1600/900",
     "hiddenGem": false,
     "culturalDepth": 89,
     "season": "summer"
@@ -870,13 +1125,19 @@
     "date": "2026-06-06",
     "endDate": "2026-09-12",
     "category": "Show",
-    "mood": ["spectacular", "historical"],
-    "sensory": ["visual", "sound"],
+    "mood": [
+      "spectacular",
+      "historical"
+    ],
+    "sensory": [
+      "visual",
+      "sound"
+    ],
     "description": "The world's biggest night show with substantial fireworks, thousands of actors, and special effects.",
     "historicalNote": "Recounts the history of the Vendée region from the Middle Ages to WWII through the eyes of a peasant family.",
     "frenchPhrase": "L'Histoire n'attend pas",
     "phraseTranslation": "History waits for no one",
-    "image": "https://images.unsplash.com/photo-1533551528659-c290b2e84dce?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/42-puy-du-fou-cinescenie-les-epesses/1600/900",
     "hiddenGem": false,
     "culturalDepth": 82,
     "season": "summer"
@@ -891,13 +1152,19 @@
     "date": "2026-06-25",
     "endDate": "2026-07-20",
     "category": "Nature",
-    "mood": ["peaceful", "romantic"],
-    "sensory": ["smell", "visual"],
+    "mood": [
+      "peaceful",
+      "romantic"
+    ],
+    "sensory": [
+      "smell",
+      "visual"
+    ],
     "description": "Witness the endless purple fields of Provence in full bloom.",
     "historicalNote": "Lavender has been harvested here for centuries for perfume and soap. The Plateau de Valensole offers the most iconic views.",
     "frenchPhrase": "L'or bleu de Provence",
     "phraseTranslation": "The blue gold of Provence",
-    "image": "https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/43-lavender-fields-bloom-valensole/1600/900",
     "hiddenGem": false,
     "culturalDepth": 80,
     "season": "summer"
@@ -912,13 +1179,19 @@
     "date": "2026-09-05",
     "endDate": "2026-09-06",
     "category": "Market",
-    "mood": ["bustling", "friendly"],
-    "sensory": ["taste", "sound"],
+    "mood": [
+      "bustling",
+      "friendly"
+    ],
+    "sensory": [
+      "taste",
+      "sound"
+    ],
     "description": "Europe's largest flea market, where visitors eat heaps of mussels and fries.",
     "historicalNote": "Dates back to the 12th century. Restaurants pile empty mussel shells outside their doors to compete for the biggest mound.",
     "frenchPhrase": "Moules-frites",
     "phraseTranslation": "Mussels and fries",
-    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/44-la-braderie-de-lille-lille/1600/900",
     "hiddenGem": false,
     "culturalDepth": 87,
     "season": "autumn"
@@ -933,13 +1206,18 @@
     "date": "2026-05-12",
     "endDate": "2026-05-23",
     "category": "Film",
-    "mood": ["glamorous", "artistic"],
-    "sensory": ["visual"],
+    "mood": [
+      "glamorous",
+      "artistic"
+    ],
+    "sensory": [
+      "visual"
+    ],
     "description": "Star-studded premieres, red carpets, and the pursuit of the Palme d'Or.",
     "historicalNote": "First held in 1946. It is one of the 'Big Three' film festivals alongside Venice and Berlin.",
     "frenchPhrase": "Tapis rouge",
     "phraseTranslation": "Red carpet",
-    "image": "https://images.unsplash.com/photo-1535448033526-80ce265f78eb?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/45-cannes-film-festival-cannes/1600/900",
     "hiddenGem": false,
     "culturalDepth": 78,
     "season": "spring"
@@ -949,18 +1227,23 @@
     "name": "Beaujolais Nouveau Day",
     "city": "Lyon",
     "region": "Auvergne-Rhône-Alpes",
-    "latitude": 45.7640,
+    "latitude": 45.764,
     "longitude": 4.8357,
     "date": "2026-11-19",
     "endDate": "2026-11-19",
     "category": "Food & Wine",
-    "mood": ["festive", "traditional"],
-    "sensory": ["taste"],
+    "mood": [
+      "festive",
+      "traditional"
+    ],
+    "sensory": [
+      "taste"
+    ],
     "description": "Celebration of the first wine of the season, released at midnight on the third Thursday of November.",
     "historicalNote": "Started as a local phenomenon in Beaujolais bars, it became a global marketing success in the 1980s.",
     "frenchPhrase": "Le Beaujolais Nouveau est arrivé !",
     "phraseTranslation": "The New Beaujolais has arrived!",
-    "image": "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/46-beaujolais-nouveau-day-lyon/1600/900",
     "hiddenGem": false,
     "culturalDepth": 65,
     "season": "autumn"
@@ -970,18 +1253,23 @@
     "name": "Printemps de Bourges",
     "city": "Bourges",
     "region": "Centre-Val de Loire",
-    "latitude": 47.0810,
+    "latitude": 47.081,
     "longitude": 2.3988,
     "date": "2026-04-21",
     "endDate": "2026-04-26",
     "category": "Music",
-    "mood": ["artistic", "energetic"],
-    "sensory": ["sound"],
+    "mood": [
+      "artistic",
+      "energetic"
+    ],
+    "sensory": [
+      "sound"
+    ],
     "description": "Major music festival kicking off the season, focusing on contemporary music.",
     "historicalNote": "Founded in 1977. It is known for discovering new talent and mixing genres from rock to rap and chanson.",
     "frenchPhrase": "Le printemps arrive",
     "phraseTranslation": "Spring is coming",
-    "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/47-printemps-de-bourges-bourges/1600/900",
     "hiddenGem": true,
     "culturalDepth": 76,
     "season": "spring"
@@ -996,13 +1284,19 @@
     "date": "2026-07-25",
     "endDate": "2026-08-15",
     "category": "Music",
-    "mood": ["relaxed", "sophisticated"],
-    "sensory": ["sound", "taste"],
+    "mood": [
+      "relaxed",
+      "sophisticated"
+    ],
+    "sensory": [
+      "sound",
+      "taste"
+    ],
     "description": "World-renowned jazz festival held in a small Gascon bastide town, famous for duck and foie gras.",
     "historicalNote": "Established in 1978. It attracts jazz legends like Wynton Marsalis who is the festival's patron.",
     "frenchPhrase": "Ça swingue !",
     "phraseTranslation": "It swings!",
-    "image": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/48-jazz-in-marciac-marciac/1600/900",
     "hiddenGem": true,
     "culturalDepth": 84,
     "season": "summer"
@@ -1017,13 +1311,19 @@
     "date": "2026-06-18",
     "endDate": "2026-06-21",
     "category": "Music",
-    "mood": ["intense", "community"],
-    "sensory": ["sound", "visual"],
+    "mood": [
+      "intense",
+      "community"
+    ],
+    "sensory": [
+      "sound",
+      "visual"
+    ],
     "description": "One of Europe's biggest heavy metal festivals, known for its unique decor and sculptures.",
     "historicalNote": "Founded in 2006 on the ashes of Furyfest. It has become a pilgrimage site for metalheads worldwide.",
     "frenchPhrase": "Enfer et damnation",
     "phraseTranslation": "Hell and damnation",
-    "image": "https://images.unsplash.com/photo-1470229722913-7ea051c7130e?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/49-hellfest-clisson/1600/900",
     "hiddenGem": false,
     "culturalDepth": 70,
     "season": "summer"
@@ -1038,13 +1338,19 @@
     "date": "2026-09-15",
     "endDate": "2026-10-30",
     "category": "Food & Wine",
-    "mood": ["peaceful", "gourmet"],
-    "sensory": ["taste", "visual"],
+    "mood": [
+      "peaceful",
+      "gourmet"
+    ],
+    "sensory": [
+      "taste",
+      "visual"
+    ],
     "description": "Experience the grape harvest along the Wine Route in golden autumn light.",
     "historicalNote": "Alsace wines (Riesling, Gewurztraminer) have been produced here since Roman times. The 'Vendanges' is a community effort.",
     "frenchPhrase": "Le vin est la poésie de la terre",
     "phraseTranslation": "Wine is the earth's poetry",
-    "image": "https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/50-alsace-wine-harvest-colmar/1600/900",
     "hiddenGem": true,
     "culturalDepth": 86,
     "season": "autumn"
@@ -1059,13 +1365,19 @@
     "date": "2026-07-16",
     "endDate": "2026-07-19",
     "category": "Music",
-    "mood": ["festive", "community"],
-    "sensory": ["sound", "visual"],
+    "mood": [
+      "festive",
+      "community"
+    ],
+    "sensory": [
+      "sound",
+      "visual"
+    ],
     "description": "France's largest music festival, held in a field in central Brittany.",
     "historicalNote": "Started as a small student party in 1992. Now attracts ~280,000 people. 'Vieilles Charrues' means 'Old Ploughs'.",
     "frenchPhrase": "Kenavo !",
     "phraseTranslation": "Goodbye! (Breton)",
-    "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/51-les-vieilles-charrues-carhaix/1600/900",
     "hiddenGem": false,
     "culturalDepth": 80,
     "season": "summer"
@@ -1080,13 +1392,19 @@
     "date": "2026-10-24",
     "endDate": "2026-10-25",
     "category": "Food & Wine",
-    "mood": ["gourmet", "traditional"],
-    "sensory": ["taste", "smell"],
+    "mood": [
+      "gourmet",
+      "traditional"
+    ],
+    "sensory": [
+      "taste",
+      "smell"
+    ],
     "description": "Celebrate the opening of the scallop fishing season with tastings, markets, and concerts.",
     "historicalNote": "The scallop (Coquille St-Jacques) is a symbol of pilgrims walking to Santiago de Compostela.",
     "frenchPhrase": "La perle de la mer",
     "phraseTranslation": "The pearl of the sea",
-    "image": "https://images.unsplash.com/photo-1559742811-822873691df8?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/52-fete-de-la-coquille-saint-jacques-villers-sur-mer/1600/900",
     "hiddenGem": true,
     "culturalDepth": 75,
     "season": "autumn"
@@ -1096,18 +1414,24 @@
     "name": "Main Square Festival",
     "city": "Arras",
     "region": "Hauts-de-France",
-    "latitude": 50.2910,
+    "latitude": 50.291,
     "longitude": 2.7775,
     "date": "2026-07-03",
     "endDate": "2026-07-05",
     "category": "Music",
-    "mood": ["energetic", "modern"],
-    "sensory": ["sound", "visual"],
+    "mood": [
+      "energetic",
+      "modern"
+    ],
+    "sensory": [
+      "sound",
+      "visual"
+    ],
     "description": "International pop/rock festival held in the stunning UNESCO-listed Citadel of Arras.",
     "historicalNote": "Created in 2004. The Citadel was built by Vauban in the 17th century.",
     "frenchPhrase": "Le Nord a du cœur",
     "phraseTranslation": "The North has heart",
-    "image": "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/53-main-square-festival-arras/1600/900",
     "hiddenGem": false,
     "culturalDepth": 72,
     "season": "summer"
@@ -1122,13 +1446,18 @@
     "date": "2026-08-26",
     "endDate": "2026-08-30",
     "category": "Music",
-    "mood": ["artistic", "festive"],
-    "sensory": ["sound"],
+    "mood": [
+      "artistic",
+      "festive"
+    ],
+    "sensory": [
+      "sound"
+    ],
     "description": "Major rock festival held in the historic Domaine National de Saint-Cloud park.",
     "historicalNote": "Founded in 2003. It marks the traditional end of the summer music festival season in France.",
     "frenchPhrase": "Derniers jours d'été",
     "phraseTranslation": "Last days of summer",
-    "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/54-rock-en-seine-paris/1600/900",
     "hiddenGem": false,
     "culturalDepth": 78,
     "season": "summer"
@@ -1143,13 +1472,18 @@
     "date": "2026-09-13",
     "endDate": "2026-09-13",
     "category": "Show",
-    "mood": ["sophisticated", "luxury"],
-    "sensory": ["visual"],
+    "mood": [
+      "sophisticated",
+      "luxury"
+    ],
+    "sensory": [
+      "visual"
+    ],
     "description": "A prestigious Concours d'Elegance for classic cars held in the gardens of Château de Chantilly.",
     "historicalNote": "Revives the French tradition of Concours d'Elegance from the 1920s.",
     "frenchPhrase": "L'élégance à la française",
     "phraseTranslation": "French elegance",
-    "image": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/55-chantilly-arts-elegance-chantilly/1600/900",
     "hiddenGem": true,
     "culturalDepth": 82,
     "season": "autumn"
@@ -1159,18 +1493,24 @@
     "name": "Garorock",
     "city": "Marmande",
     "region": "Nouvelle-Aquitaine",
-    "latitude": 44.5000,
+    "latitude": 44.5,
     "longitude": 0.1667,
     "date": "2026-06-25",
     "endDate": "2026-06-28",
     "category": "Music",
-    "mood": ["wild", "youthful"],
-    "sensory": ["sound", "visual"],
+    "mood": [
+      "wild",
+      "youthful"
+    ],
+    "sensory": [
+      "sound",
+      "visual"
+    ],
     "description": "A massive music festival mixing rock, electro, and hip-hop in the south-west.",
     "historicalNote": "Started as a punk/rock festival in 1997. Now attracts 160,000 attendants.",
     "frenchPhrase": "Garonne et Rock",
     "phraseTranslation": "Garonne (river) and Rock",
-    "image": "https://images.unsplash.com/photo-1459749411177-0473ef716175?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/56-garorock-marmande/1600/900",
     "hiddenGem": true,
     "culturalDepth": 68,
     "season": "summer"
@@ -1185,13 +1525,19 @@
     "date": "2026-07-02",
     "endDate": "2026-07-05",
     "category": "Music",
-    "mood": ["natural", "energetic"],
-    "sensory": ["sound", "visual"],
+    "mood": [
+      "natural",
+      "energetic"
+    ],
+    "sensory": [
+      "sound",
+      "visual"
+    ],
     "description": "Open-air rock festival located on a peninsula between two lakes.",
     "historicalNote": "Created in 1989. Known for its strong environmental commitment and scenic location.",
     "frenchPhrase": "Musique en plein air",
     "phraseTranslation": "Open-air music",
-    "image": "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/57-eurockeennes-de-belfort-belfort/1600/900",
     "hiddenGem": false,
     "culturalDepth": 75,
     "season": "summer"
@@ -1202,17 +1548,23 @@
     "city": "La Rochelle",
     "region": "Nouvelle-Aquitaine",
     "latitude": 46.1591,
-    "longitude": -1.1520,
+    "longitude": -1.152,
     "date": "2026-07-10",
     "endDate": "2026-07-14",
     "category": "Music",
-    "mood": ["festive", "maritime"],
-    "sensory": ["sound", "visual"],
+    "mood": [
+      "festive",
+      "maritime"
+    ],
+    "sensory": [
+      "sound",
+      "visual"
+    ],
     "description": "Festival dedicated entirely to French-language music, set against the backdrop of medieval towers.",
     "historicalNote": "Founded in 1985 to promote Francophone song. It has spawned sister festivals in Montreal and Spa.",
     "frenchPhrase": "Chanter en français",
     "phraseTranslation": "Sing in French",
-    "image": "https://images.unsplash.com/photo-1516280440614-6697288d5d38?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/58-francofolies-de-la-rochelle-la-rochelle/1600/900",
     "hiddenGem": false,
     "culturalDepth": 92,
     "season": "summer"
@@ -1227,13 +1579,18 @@
     "date": "2026-10-03",
     "endDate": "2026-10-04",
     "category": "Art",
-    "mood": ["artistic", "surreal"],
-    "sensory": ["visual"],
+    "mood": [
+      "artistic",
+      "surreal"
+    ],
+    "sensory": [
+      "visual"
+    ],
     "description": "An all-night arts festival where museums open for free and installations take over the streets.",
     "historicalNote": "Launched in 2002. It inspired similar 'White Night' events in cities around the world.",
     "frenchPhrase": "Une nuit blanche",
     "phraseTranslation": "A sleepless night",
-    "image": "https://images.unsplash.com/photo-1505373877841-8d25a7de2f93?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/59-nuit-blanche-paris/1600/900",
     "hiddenGem": false,
     "culturalDepth": 94,
     "season": "autumn"
@@ -1248,13 +1605,18 @@
     "date": "2026-09-28",
     "endDate": "2026-10-06",
     "category": "Show",
-    "mood": ["glamorous", "exclusive"],
-    "sensory": ["visual"],
+    "mood": [
+      "glamorous",
+      "exclusive"
+    ],
+    "sensory": [
+      "visual"
+    ],
     "description": "The finale of the 'Big Four' fashion weeks, showcasing top couture houses.",
     "historicalNote": "Dates back to 1973. It is organized by the Fédération de la Haute Couture et de la Mode.",
     "frenchPhrase": "La mode est un éternel recommencement",
     "phraseTranslation": "Fashion is an eternal recurrence",
-    "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/60-paris-fashion-week-fall-paris/1600/900",
     "hiddenGem": false,
     "culturalDepth": 85,
     "season": "autumn"
@@ -1269,13 +1631,19 @@
     "date": "2026-04-23",
     "endDate": "2026-11-01",
     "category": "Nature",
-    "mood": ["peaceful", "artistic"],
-    "sensory": ["smell", "visual"],
+    "mood": [
+      "peaceful",
+      "artistic"
+    ],
+    "sensory": [
+      "smell",
+      "visual"
+    ],
     "description": "Landscape architects from around the world create experimental gardens on a yearly theme.",
     "historicalNote": "Since 1992, the festival has revitalized garden art. The Château itself overlooks the Loire river.",
     "frenchPhrase": "Jardin secret",
     "phraseTranslation": "Secret garden",
-    "image": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/61-international-garden-festival-chaumont-sur-loire/1600/900",
     "hiddenGem": true,
     "culturalDepth": 88,
     "season": "spring"
@@ -1290,13 +1658,19 @@
     "date": "2026-07-20",
     "endDate": "2026-08-18",
     "category": "Music",
-    "mood": ["classical", "peaceful"],
-    "sensory": ["sound", "nature"],
+    "mood": [
+      "classical",
+      "peaceful"
+    ],
+    "sensory": [
+      "sound",
+      "nature"
+    ],
     "description": "The world's premier piano festival held outdoors under giant plane trees.",
     "historicalNote": "Founded in 1981. The acoustic shell in the Parc du Château de Florans is legendary among pianists.",
     "frenchPhrase": "Piano à queue",
     "phraseTranslation": "Grand piano",
-    "image": "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/62-la-roque-d-antheron-piano-festival-la-roque-d-antheron/1600/900",
     "hiddenGem": true,
     "culturalDepth": 84,
     "season": "summer"
@@ -1311,13 +1685,19 @@
     "date": "2026-08-22",
     "endDate": "2026-08-30",
     "category": "Food & Wine",
-    "mood": ["festive", "sweet"],
-    "sensory": ["taste", "visual"],
+    "mood": [
+      "festive",
+      "sweet"
+    ],
+    "sensory": [
+      "taste",
+      "visual"
+    ],
     "description": "Celebrating the golden Mirabelle plum with parades, markets, and the election of the Mirabelle Queen.",
     "historicalNote": "Lorraine produces 70% of the world's Mirabelle plums. The festival began in 1947.",
     "frenchPhrase": "Le fruit d'or",
     "phraseTranslation": "The golden fruit",
-    "image": "https://images.unsplash.com/photo-1596363505729-4190a9506133?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/63-fetes-de-la-mirabelle-metz/1600/900",
     "hiddenGem": true,
     "culturalDepth": 75,
     "season": "summer"
@@ -1332,13 +1712,19 @@
     "date": "2026-06-02",
     "endDate": "2026-07-31",
     "category": "Festival",
-    "mood": ["artistic", "historical"],
-    "sensory": ["sound", "visual"],
+    "mood": [
+      "artistic",
+      "historical"
+    ],
+    "sensory": [
+      "sound",
+      "visual"
+    ],
     "description": "Theater, dance, music, and circus arts in the Roman amphitheatres of Lyon.",
     "historicalNote": "Revives the ancient tradition of performances on Fourvière hill, dating back to Lugdunum (Roman Lyon).",
     "frenchPhrase": "Sous les étoiles",
     "phraseTranslation": "Under the stars",
-    "image": "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/64-les-nuits-de-fourviere-lyon/1600/900",
     "hiddenGem": false,
     "culturalDepth": 90,
     "season": "summer"
@@ -1353,13 +1739,18 @@
     "date": "2026-09-08",
     "endDate": "2026-09-13",
     "category": "Show",
-    "mood": ["luxury", "nautical"],
-    "sensory": ["visual"],
+    "mood": [
+      "luxury",
+      "nautical"
+    ],
+    "sensory": [
+      "visual"
+    ],
     "description": "Europe's leading in-water boat show, displaying superyachts and luxury vessels.",
     "historicalNote": "Founded in 1977. It marks the opening of the nautical season.",
     "frenchPhrase": "Plaisance",
     "phraseTranslation": "Yachting / Pleasure boating",
-    "image": "https://images.unsplash.com/photo-1569263979104-865ab7dd8d17?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/65-cannes-yachting-festival-cannes/1600/900",
     "hiddenGem": false,
     "culturalDepth": 55,
     "season": "autumn"
@@ -1374,13 +1765,19 @@
     "date": "2026-07-05",
     "endDate": "2026-07-07",
     "category": "Folklore",
-    "mood": ["traditional", "family"],
-    "sensory": ["visual", "sound"],
+    "mood": [
+      "traditional",
+      "family"
+    ],
+    "sensory": [
+      "visual",
+      "sound"
+    ],
     "description": "Parade of the giant wicker figures 'Gayant' and his family through the streets.",
     "historicalNote": "UNESCO designated Masterpiece of Heritage. The tradition dates back to 1530 to celebrate the end of a siege.",
     "frenchPhrase": "Géants du Nord",
     "phraseTranslation": "Giants of the North",
-    "image": "https://images.unsplash.com/photo-1629213883199-317671198539?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/66-fetes-de-gayant-douai/1600/900",
     "hiddenGem": true,
     "culturalDepth": 96,
     "season": "summer"
@@ -1395,13 +1792,19 @@
     "date": "2026-07-10",
     "endDate": "2026-08-22",
     "category": "Leisure",
-    "mood": ["relaxed", "summer"],
-    "sensory": ["visual", "nature"],
+    "mood": [
+      "relaxed",
+      "summer"
+    ],
+    "sensory": [
+      "visual",
+      "nature"
+    ],
     "description": "The banks of the Seine are transformed into beaches with sand, deckchairs, and palm trees.",
     "historicalNote": "Initiated in 2002 for Parisians who couldn't leave the city for summer vacation.",
     "frenchPhrase": "Sous les pavés, la plage",
     "phraseTranslation": "Under the cobblestones, the beach",
-    "image": "https://images.unsplash.com/photo-1565551820686-e78453489814?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/67-paris-plages-paris/1600/900",
     "hiddenGem": false,
     "culturalDepth": 60,
     "season": "summer"
@@ -1416,13 +1819,19 @@
     "date": "2026-12-05",
     "endDate": "2026-12-06",
     "category": "Folklore",
-    "mood": ["magical", "family"],
-    "sensory": ["visual", "taste"],
+    "mood": [
+      "magical",
+      "family"
+    ],
+    "sensory": [
+      "visual",
+      "taste"
+    ],
     "description": "Grand parade honoring Saint Nicholas, the patron saint of Lorraine (and children).",
     "historicalNote": "Older and more important in this region than Christmas itself. Features 'Père Fouettard' (the whipping father).",
     "frenchPhrase": "Saint Nicolas, patron des écoliers",
     "phraseTranslation": "Saint Nicholas, patron of schoolchildren",
-    "image": "https://images.unsplash.com/photo-1512444391696-6e93297a7d45?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/68-les-fetes-de-saint-nicolas-nancy/1600/900",
     "hiddenGem": true,
     "culturalDepth": 98,
     "season": "winter"
@@ -1437,13 +1846,19 @@
     "date": "2026-08-20",
     "endDate": "2026-08-25",
     "category": "Sport",
-    "mood": ["intense", "traditional"],
-    "sensory": ["visual", "sound"],
+    "mood": [
+      "intense",
+      "traditional"
+    ],
+    "sensory": [
+      "visual",
+      "sound"
+    ],
     "description": "Water jousting tournament in the canals of Sète, known as the 'Venice of Languedoc'.",
     "historicalNote": "Celebrating the city's patron saint (Louis XIV) since 1666. Jousters combat on boats to the sound of oboes.",
     "frenchPhrase": "Joutes nautiques",
     "phraseTranslation": "Nautical jousting",
-    "image": "https://images.unsplash.com/photo-1647460670355-3037f0003058?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/69-fete-de-la-saint-louis-sete/1600/900",
     "hiddenGem": true,
     "culturalDepth": 94,
     "season": "summer"
@@ -1458,13 +1873,19 @@
     "date": "2026-10-07",
     "endDate": "2026-10-11",
     "category": "Food & Wine",
-    "mood": ["bohemian", "festive"],
-    "sensory": ["taste", "sound"],
+    "mood": [
+      "bohemian",
+      "festive"
+    ],
+    "sensory": [
+      "taste",
+      "sound"
+    ],
     "description": "Celebrating the wine harvest from the last remaining vineyard in Paris.",
     "historicalNote": "Since 1934. The 'Clos Montmartre' vineyard produces about 1,000 bottles auctioned for charity.",
     "frenchPhrase": "La bohème",
     "phraseTranslation": "Bohemia",
-    "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&auto=format&fit=crop",
+    "image": "https://picsum.photos/seed/70-fete-des-vendanges-de-montmartre-paris/1600/900",
     "hiddenGem": true,
     "culturalDepth": 88,
     "season": "autumn"
