@@ -8,8 +8,8 @@ const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
 const delay = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function askCulturalGuide(message, retries = 3) {
-  if (!GITHUB_TOKEN) return 'API token is missing. Please set VITE_GITHUB_TOKEN in your .env file.';
+async function askCulturalGuide(message, t, lang, retries = 3) {
+  if (!GITHUB_TOKEN) return t('apiTokenMissing');
 
   for (let attempt = 0; attempt < retries; attempt++) {
     try {
@@ -23,7 +23,13 @@ async function askCulturalGuide(message, retries = 3) {
         body: JSON.stringify({
           model: 'gpt-4o-mini',
           messages: [
-            { role: 'system', content: 'You are a friendly French cultural guide. Answer questions about French culture, events, festivals, regions, food, traditions, and travel tips. Keep answers concise (2-4 sentences). Be warm and knowledgeable.' },
+            {
+              role: 'system',
+              content:
+                lang === 'fr'
+                  ? 'Vous etes un guide culturel francais chaleureux. Repondez sur la culture, les evenements, festivals, regions, cuisine, traditions et conseils de voyage en 2 a 4 phrases claires.'
+                  : 'You are a friendly French cultural guide. Answer questions about French culture, events, festivals, regions, food, traditions, and travel tips. Keep answers concise (2-4 sentences). Be warm and knowledgeable.',
+            },
             { role: 'user', content: message },
           ],
           temperature: 0.7,
@@ -33,15 +39,15 @@ async function askCulturalGuide(message, retries = 3) {
 
       if (res.status === 429) {
         if (attempt < retries - 1) continue;
-        return 'Rate limit reached. Please wait a few seconds and try again.';
+        return t('rateLimitReached');
       }
       if (!res.ok) {
-        return `Sorry, API error (${res.status}). Please try again.`;
+        return `${t('apiError')} (${res.status}).`;
       }
       const data = await res.json();
-      return data.choices?.[0]?.message?.content || 'I\'m not sure about that. Try asking about a specific French cultural event or region!';
+      return data.choices?.[0]?.message?.content || t('unsureAnswer');
     } catch {
-      if (attempt === retries - 1) return 'Network error. Please check your connection.';
+      if (attempt === retries - 1) return t('networkError');
     }
   }
 }
@@ -53,7 +59,7 @@ const ChatGuide = () => {
   const scrollRef = useRef(null);
   const { theme } = useTheme();
   // Safe default for t function
-  const { t } = { t: (k) => k, ...useLang() }; 
+  const { t, lang } = { t: (k) => k, lang: 'en', ...useLang() };
   const isDark = theme === 'dark';
 
   useEffect(() => {
@@ -70,7 +76,7 @@ const ChatGuide = () => {
     setMessages((prev) => [...prev, { role: 'user', text: textToSend }]);
     setLoading(true);
 
-    const reply = await askCulturalGuide(textToSend);
+    const reply = await askCulturalGuide(textToSend, t, lang);
     setMessages((prev) => [...prev, { role: 'bot', text: reply }]);
     setLoading(false);
   };
@@ -81,15 +87,15 @@ const ChatGuide = () => {
         
         {/* Header Section */}
         <div className="text-center mb-4 md:mb-6 flex-shrink-0">
-          <span className="inline-block gold-gradient text-navy text-[0.65rem] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-3">
-            AI Assistant
-          </span>
+            <span className="inline-block gold-gradient text-navy text-[0.65rem] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-3">
+            {t('aiAssistant')}
+            </span>
           <h1 className={`font-playfair text-3xl md:text-4xl font-extrabold ${isDark ? 'text-white' : 'text-navy'}`}>
             {t('chatTitle') || 'Cultural Guide'}
           </h1>
-          <p className={`mt-2 text-sm md:text-base ${isDark ? 'text-white/60' : 'text-gray-500'}`}>
-            Your personal guide to French culture, history, and traditions.
-          </p>
+            <p className={`mt-2 text-sm md:text-base ${isDark ? 'text-white/60' : 'text-gray-500'}`}>
+            {t('chatSubheading')}
+            </p>
         </div>
         
         {/* Chat Container */}
@@ -112,7 +118,7 @@ const ChatGuide = () => {
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-lg">
-                  {['Best time to visit Paris?', 'What is Bastille Day?', 'Famous foods in Lyon', 'Castles in Loire Valley'].map((q) => (
+                  {[t('chatPrompt1'), t('chatPrompt2'), t('chatPrompt3'), t('chatPrompt4')].map((q) => (
                     <button
                       key={q}
                       onClick={() => handleSend(q)}
@@ -196,7 +202,7 @@ const ChatGuide = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder={t('chatPlaceholder') || 'Ask something...'}
+                placeholder={t('chatPlaceholder') || t('askSomething')}
                 className={`flex-1 px-3 py-3 md:px-4 md:py-3 bg-transparent outline-none text-base ${
                   isDark ? 'text-white placeholder:text-white/30' : 'text-navy placeholder:text-gray-400'
                 }`}
@@ -210,7 +216,7 @@ const ChatGuide = () => {
               </button>
             </div>
             <p className={`text-center text-[0.65rem] md:text-[0.7rem] mt-2 md:mt-3 ${isDark ? 'text-white/30' : 'text-gray-400'}`}>
-              AI can make mistakes. Verify important information.
+              {t('aiMistakesNote')}
             </p>
           </div>
 

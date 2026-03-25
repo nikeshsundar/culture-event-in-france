@@ -2,8 +2,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles, MessageCircle, Send, Bot, Bookmark, CalendarPlus } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import { generateEventStory, askAboutEvent } from '../ai/gemini';
+import { useLang } from '../context/LanguageContext';
+import { sensoryTypes } from '../data/constants';
 
 export default function EventModal({ event, onClose }) {
+  const { t, locale, lang } = useLang();
+  const sensoryMap = Object.fromEntries(sensoryTypes.map((s) => [s.id, s]));
   const [story, setStory] = useState(null);
   const [loadingStory, setLoadingStory] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
@@ -28,7 +32,7 @@ export default function EventModal({ event, onClose }) {
 
   const handleStoryMode = async () => {
     setLoadingStory(true);
-    const result = await generateEventStory(event);
+    const result = await generateEventStory(event, lang);
     setStory(result);
     setLoadingStory(false);
   };
@@ -39,7 +43,7 @@ export default function EventModal({ event, onClose }) {
     setChatInput('');
     setChatMessages((prev) => [...prev, { role: 'user', text: question }]);
     setChatLoading(true);
-    const reply = await askAboutEvent(event, question);
+    const reply = await askAboutEvent(event, question, lang);
     setChatMessages((prev) => [...prev, { role: 'bot', text: reply }]);
     setChatLoading(false);
   };
@@ -57,9 +61,9 @@ export default function EventModal({ event, onClose }) {
         };
         localStorage.setItem('experienceVault', JSON.stringify([...saved, newItem]));
         window.dispatchEvent(new Event('vault-updated'));
-        alert('Added to Experience Vault!');
+        alert(t('addedToVault'));
       } else {
-        alert('Already in your Vault.');
+        alert(t('alreadyInVault'));
       }
     } catch (err) {
       console.error(err);
@@ -79,7 +83,7 @@ export default function EventModal({ event, onClose }) {
       };
       localStorage.setItem('myItinerary', JSON.stringify([...saved, newItem]));
       window.dispatchEvent(new Event('itinerary-updated'));
-      alert(`Added to Itinerary for ${event.date}!`);
+      alert(`${t('addedToItineraryFor')} ${new Date(event.date).toLocaleDateString(locale)} !`);
     } catch (err) {
       console.error(err);
     }
@@ -114,7 +118,7 @@ export default function EventModal({ event, onClose }) {
             </button>
             <div className="absolute bottom-4 left-6 right-6">
               <span className="gold-gradient text-navy text-[0.68rem] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                {event.category}
+                {t(`category${event.category.replace(/[^a-zA-Z]/g, '')}`)}
               </span>
               <h2 className="font-playfair text-3xl font-bold text-white mt-2 line-clamp-2">{event.name}</h2>
               <p className="text-white/60 text-sm mt-1 truncate">{event.city}, {event.region}</p>
@@ -125,11 +129,11 @@ export default function EventModal({ event, onClose }) {
           <div className="p-6 md:p-8">
             {/* Date & Distance */}
             <div className="flex gap-4 flex-wrap mb-5 text-sm text-gray-400">
-              <span>📅 {new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+              <span>📅 {new Date(event.date).toLocaleDateString(locale, { month: 'long', day: 'numeric', year: 'numeric' })}</span>
               {event.endDate !== event.date && (
-                <span>→ {new Date(event.endDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}</span>
+                <span>→ {new Date(event.endDate).toLocaleDateString(locale, { month: 'long', day: 'numeric' })}</span>
               )}
-              {event.distance != null && <span>📍 {event.distance} km away</span>}
+              {event.distance != null && <span>📍 {event.distance} {t('awayKm')} {t('away')}</span>}
             </div>
 
             <div className="flex flex-wrap gap-3 mb-6">
@@ -137,13 +141,13 @@ export default function EventModal({ event, onClose }) {
                 onClick={addToVault}
                 className="flex items-center gap-2 px-4 py-2 bg-navy/5 hover:bg-navy/10 rounded-lg text-sm font-semibold text-navy transition-colors"
               >
-                <Bookmark size={15} /> Save to Vault
+                <Bookmark size={15} /> {t('saveToVault')}
               </button>
               <button
                 onClick={addToItinerary}
                 className="flex items-center gap-2 px-4 py-2 bg-navy/5 hover:bg-navy/10 rounded-lg text-sm font-semibold text-navy transition-colors"
               >
-                <CalendarPlus size={15} /> Add to Itinerary
+                <CalendarPlus size={15} /> {t('addToItinerary')}
               </button>
             </div>
 
@@ -152,7 +156,7 @@ export default function EventModal({ event, onClose }) {
 
             {/* Historical note */}
             <div className="bg-cream rounded-xl p-4 mb-5">
-              <h4 className="font-playfair font-bold text-navy text-sm mb-1">🏛 Historical Note</h4>
+              <h4 className="font-playfair font-bold text-navy text-sm mb-1">🏛 {t('historicalNote')}</h4>
               <p className="text-sm text-gray-500 leading-relaxed">{event.historicalNote}</p>
             </div>
 
@@ -166,12 +170,12 @@ export default function EventModal({ event, onClose }) {
             <div className="flex gap-2 flex-wrap mb-5">
               {event.sensory.map((s) => (
                 <span key={s} className="bg-navy/5 text-navy text-xs font-semibold px-3 py-1.5 rounded-full capitalize">
-                  {s}
+                  {sensoryMap[s]?.emoji} {t(sensoryMap[s]?.labelKey)}
                 </span>
               ))}
               {event.mood.map((m) => (
                 <span key={m} className="bg-gold/10 text-gold-dark text-xs font-semibold px-3 py-1.5 rounded-full capitalize">
-                  {m}
+                  {t(m)}
                 </span>
               ))}
             </div>
@@ -179,7 +183,7 @@ export default function EventModal({ event, onClose }) {
             {/* Cultural depth */}
             <div className="mb-6">
               <div className="flex justify-between text-sm text-gray-400 mb-1.5">
-                <span>Cultural Depth</span>
+                <span>{t('culturalDepth')}</span>
                 <span className="font-bold text-gold-dark">{event.culturalDepth}%</span>
               </div>
               <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -198,15 +202,15 @@ export default function EventModal({ event, onClose }) {
                   {loadingStory ? (
                     <span className="flex items-center gap-2 justify-center">
                       <span className="w-4 h-4 border-2 border-navy/30 border-t-navy rounded-full animate-spin" />
-                      AI is writing your story...
-                    </span>
-                  ) : (
-                    <>
-                      <Sparkles size={14} className="inline mr-2 -mt-0.5" />
-                      Story Mode — AI Cultural Narrative
-                    </>
-                  )}
-                </button>
+                       {t('aiWritingStory')}
+                     </span>
+                   ) : (
+                     <>
+                       <Sparkles size={14} className="inline mr-2 -mt-0.5" />
+                       {t('storyModeButton')}
+                     </>
+                   )}
+                 </button>
               ) : (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -215,7 +219,7 @@ export default function EventModal({ event, onClose }) {
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <Sparkles size={14} className="text-gold" />
-                    <span className="text-gold text-xs font-bold tracking-[0.1em] uppercase">AI Story Mode</span>
+                    <span className="text-gold text-xs font-bold tracking-[0.1em] uppercase">{t('aiStory')}</span>
                   </div>
                   <p className="text-white/80 leading-relaxed italic">{story}</p>
                 </motion.div>
@@ -230,7 +234,7 @@ export default function EventModal({ event, onClose }) {
                   className="w-full bg-navy text-white py-3 rounded-xl font-bold text-sm hover:scale-[1.02] transition-transform flex items-center justify-center gap-2"
                 >
                   <MessageCircle size={14} />
-                  Know More — Chat with AI about this event
+                  {t('knowMoreButton')}
                 </button>
               ) : (
                 <motion.div
@@ -240,17 +244,17 @@ export default function EventModal({ event, onClose }) {
                 >
                   <div className="gold-gradient px-4 py-2.5 flex items-center gap-2">
                     <Bot size={16} className="text-navy" />
-                    <span className="font-bold text-navy text-sm">Ask about {event.name}</span>
+                    <span className="font-bold text-navy text-sm">{t('askAboutEvent')} {event.name}</span>
                   </div>
 
                   {/* Quick questions */}
                   {chatMessages.length === 0 && (
                     <div className="px-4 pt-3 flex flex-wrap gap-2">
                       {[
-                        `What should I wear to ${event.name}?`,
-                        `Best food near ${event.city}?`,
-                        `How to get tickets?`,
-                        `What's the history?`,
+                        `${t('whatShouldIWear')} ${event.name}?`,
+                        `${t('bestFoodNear')} ${event.city}?`,
+                        t('howToGetTickets'),
+                        t('whatsTheHistory'),
                       ].map((q) => (
                         <button
                           key={q}
@@ -313,7 +317,7 @@ export default function EventModal({ event, onClose }) {
                         value={chatInput}
                         onChange={(e) => setChatInput(e.target.value)}
                         onKeyDown={(e) => e.key === 'Enter' && handleEventChat()}
-                        placeholder={`Ask anything about ${event.name}...`}
+                        placeholder={`${t('askAnythingAbout')} ${event.name}...`}
                         className="flex-1 px-3 py-2 rounded-lg text-sm outline-none bg-white border border-gray-200 text-navy focus:border-gold placeholder:text-gray-300"
                       />
                       <button

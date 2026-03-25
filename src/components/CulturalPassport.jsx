@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { regionStamps } from '../data/constants';
+import { useLang } from '../context/LanguageContext';
 
 export default function CulturalPassport({ exploredRegions = [] }) {
+  const { t } = useLang();
   const earned = exploredRegions.length;
   const total = regionStamps.length;
   const progress = Math.round((earned / total) * 100);
@@ -11,13 +13,13 @@ export default function CulturalPassport({ exploredRegions = [] }) {
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <span className="inline-block gold-gradient text-navy text-[0.65rem] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-4">
-          Your Journey
+          {t('passportLabel')}
         </span>
         <h2 className="font-playfair text-3xl sm:text-4xl font-extrabold text-white mb-3">
-          Cultural Passport
+          {t('passportTitle')}
         </h2>
         <p className="text-white/50 max-w-md mx-auto mb-10">
-          Collect stamps from every region of France as you explore cultural events
+          {t('passportProgress')}
         </p>
 
         {/* Passport book */}
@@ -31,7 +33,7 @@ export default function CulturalPassport({ exploredRegions = [] }) {
           <div className="flex items-center justify-between mb-8 flex-wrap gap-3">
             <h3 className="font-playfair text-xl text-gold">🎖️ Mon Passeport Culturel</h3>
             <span className="text-sm text-white/50">
-              Regions explored: <strong className="text-gold-light">{earned} / {total}</strong>
+              {t('passportProgress')}: <strong className="text-gold-light">{earned} / {total}</strong>
             </span>
           </div>
 
@@ -65,7 +67,7 @@ export default function CulturalPassport({ exploredRegions = [] }) {
           {/* Progress bar */}
           <div>
             <div className="flex justify-between text-sm text-white/50 mb-2.5">
-              <span>Cultural Immersion Progress</span>
+              <span>{t('immersionTitle')}</span>
               <span className="text-gold font-bold">{progress}%</span>
             </div>
             <div className="h-2 bg-white/10 rounded-full overflow-hidden">

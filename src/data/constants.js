@@ -52,27 +52,42 @@ export const categories = [
   "Festival",
 ];
 
+export const categoryLabelKeys = {
+  Music: 'categoryMusic',
+  Film: 'categoryFilm',
+  Theatre: 'categoryTheatre',
+  Art: 'categoryArt',
+  Carnival: 'categoryCarnival',
+  'Food & Wine': 'categoryFoodWine',
+  Fashion: 'categoryFashion',
+  Sports: 'categorySports',
+  'Light Festival': 'categoryLightFestival',
+  Market: 'categoryMarket',
+  'National Holiday': 'categoryNationalHoliday',
+  Festival: 'categoryFestival',
+};
+
 export const moods = [
-  { id: "romantic", label: "Romantic", emoji: "🌹" },
-  { id: "adventurous", label: "Adventurous", emoji: "🧗" },
-  { id: "artistic", label: "Artistic", emoji: "🎨" },
-  { id: "peaceful", label: "Peaceful", emoji: "🕊" },
-  { id: "gourmet", label: "Gourmet", emoji: "🍷" },
+  { id: "romantic", label: "Romantic", labelKey: 'romantic', emoji: "🌹" },
+  { id: "adventurous", label: "Adventurous", labelKey: 'adventurous', emoji: "🧗" },
+  { id: "artistic", label: "Artistic", labelKey: 'artistic', emoji: "🎨" },
+  { id: "peaceful", label: "Peaceful", labelKey: 'peaceful', emoji: "🕊" },
+  { id: "gourmet", label: "Gourmet", labelKey: 'gourmet', emoji: "🍷" },
 ];
 
 export const sensoryTypes = [
-  { id: "visual", label: "Visual", emoji: "👁" },
-  { id: "sound", label: "Sound", emoji: "🎵" },
-  { id: "taste", label: "Taste", emoji: "🍷" },
-  { id: "outdoor", label: "Nature & Outdoors", emoji: "🌿" },
-  { id: "historical", label: "Historical Depth", emoji: "🏛" },
+  { id: "visual", label: "Visual", labelKey: 'sensoryVisual', emoji: "👁" },
+  { id: "sound", label: "Sound", labelKey: 'sensorySound', emoji: "🎵" },
+  { id: "taste", label: "Taste", labelKey: 'sensoryTaste', emoji: "🍷" },
+  { id: "outdoor", label: "Nature & Outdoors", labelKey: 'sensoryOutdoor', emoji: "🌿" },
+  { id: "historical", label: "Historical Depth", labelKey: 'sensoryHistorical', emoji: "🏛" },
 ];
 
 export const seasons = [
-  { id: "spring", label: "Spring", emoji: "🌸", months: [3, 4, 5] },
-  { id: "summer", label: "Summer", emoji: "☀️", months: [6, 7, 8] },
-  { id: "autumn", label: "Autumn", emoji: "🍂", months: [9, 10, 11] },
-  { id: "winter", label: "Winter", emoji: "❄️", months: [12, 1, 2] },
+  { id: "spring", label: "Spring", labelKey: 'spring', emoji: "🌸", months: [3, 4, 5] },
+  { id: "summer", label: "Summer", labelKey: 'summer', emoji: "☀️", months: [6, 7, 8] },
+  { id: "autumn", label: "Autumn", labelKey: 'autumn', emoji: "🍂", months: [9, 10, 11] },
+  { id: "winter", label: "Winter", labelKey: 'winter', emoji: "❄️", months: [12, 1, 2] },
 ];
 
 export const regionStamps = [

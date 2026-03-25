@@ -7,9 +7,10 @@ import { filterEvents } from '../utils/haversine';
 import { scoreMoodMatch } from '../utils/scoring';
 import EventCard from '../components/EventCard';
 import EventModal from '../components/EventModal';
-import { moods, categories, seasons } from '../data/constants';
+import { useLang } from '../context/LanguageContext';
 
 export default function Results() {
+  const { t, locale } = useLang();
   const [params] = useSearchParams();
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [hiddenGemOnly, setHiddenGemOnly] = useState(false);
@@ -70,24 +71,24 @@ export default function Results() {
             {query && (
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles size={14} className="text-gold" />
-                <span className="text-gold text-xs font-bold tracking-[0.1em] uppercase">AI Search</span>
+                <span className="text-gold text-xs font-bold tracking-[0.1em] uppercase">{t('aiSearchLabel')}</span>
               </div>
             )}
             <h1 className="font-playfair text-3xl sm:text-4xl font-bold text-white mb-2">
               {query ? (
-                <>Results for: <span className="text-gold italic">"{query}"</span></>
+                <>{t('resultsFor')}: <span className="text-gold italic">"{query}"</span></>
               ) : cityName ? (
-                <>Events near <span className="text-gold">{cityName}</span></>
+                <>{t('eventsNear')} <span className="text-gold">{cityName}</span></>
               ) : (
-                'All Cultural Events'
+                t('browseTitle')
               )}
             </h1>
             <p className="text-white/50 text-sm">
-              {results.length} event{results.length !== 1 ? 's' : ''} found
-              {date && !endDate && ` · ${new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`}
-              {date && endDate && ` · ${new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${new Date(endDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`}
-              {mood && ` · ${mood} mood`}
-              {range < 10000 && ` · within ${range} km`}
+              {results.length} {t('eventsFound')}
+              {date && !endDate && ` · ${new Date(date).toLocaleDateString(locale, { month: 'long', day: 'numeric', year: 'numeric' })}`}
+              {date && endDate && ` · ${new Date(date).toLocaleDateString(locale, { month: 'short', day: 'numeric' })} - ${new Date(endDate).toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })}`}
+              {mood && ` · ${t(mood)} ${t('moodSuffix')}`}
+              {range < 10000 && ` · ${t('withinKm')} ${range} km`}
             </p>
           </motion.div>
         </div>
@@ -104,10 +105,10 @@ export default function Results() {
             onChange={(e) => setSortBy(e.target.value)}
             className="text-sm bg-navy/5 border border-navy/10 rounded-lg px-3 py-1.5 text-navy font-medium outline-none"
           >
-            <option value="distance">Sort: Nearest</option>
-            <option value="mood">Sort: Best Mood Match</option>
-            <option value="depth">Sort: Cultural Depth</option>
-            <option value="date">Sort: Date</option>
+            <option value="distance">{t('nearestSort')}</option>
+            <option value="mood">{t('bestMoodSort')}</option>
+            <option value="depth">{t('depthSort')}</option>
+            <option value="date">{t('dateSort')}</option>
           </select>
 
           {/* Hidden gem toggle */}
@@ -119,7 +120,7 @@ export default function Results() {
                 : 'bg-white text-gray-500 border-gray-200 hover:border-gold/40'
             }`}
           >
-            ✨ Hidden Gems Only
+            ✨ {t('hiddenGemsOnly')}
           </button>
         </div>
       </div>
@@ -133,9 +134,9 @@ export default function Results() {
             className="text-center py-20"
           >
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="font-playfair text-2xl font-bold text-navy mb-2">No events found</h3>
+            <h3 className="font-playfair text-2xl font-bold text-navy mb-2">{t('noEventsFoundTitle')}</h3>
             <p className="text-gray-400 max-w-md mx-auto">
-              Try adjusting your search criteria — different date, wider range, or a different mood.
+              {t('noEventsFoundHint')}
             </p>
           </motion.div>
         ) : (

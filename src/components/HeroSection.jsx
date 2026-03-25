@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { useLang } from '../context/LanguageContext';
 
 export default function HeroSection() {
+  const { t } = useLang();
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-20 overflow-hidden">
       {/* Background */}
@@ -25,7 +28,7 @@ export default function HeroSection() {
           className="flex items-center gap-3 text-gold text-[0.8rem] font-semibold tracking-[0.2em] uppercase mb-6"
         >
           <span className="w-10 h-px bg-gold" />
-          AI-Powered Cultural Exploration
+          {t('heroEyebrow')}
           <span className="w-10 h-px bg-gold" />
         </motion.div>
 
@@ -35,12 +38,12 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="font-playfair text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.08]"
         >
-          Discover{' '}
+          {t('heroTitle1')}{' '}
           <em className="text-gold-gradient font-playfair italic bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent">
-            La France
+            {t('heroTitle2')}
           </em>
           <br />
-          Through Its Culture
+          {t('heroTitle3')}
         </motion.h1>
 
         <motion.p
@@ -49,8 +52,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-5 max-w-xl text-white/65 text-base sm:text-lg leading-relaxed"
         >
-          Find festivals, traditions, and cultural experiences across all regions of France — 
-          filtered by your date, location, and mood. Powered by AI.
+          {t('heroSubtitle')}
         </motion.p>
       </div>
     </section>

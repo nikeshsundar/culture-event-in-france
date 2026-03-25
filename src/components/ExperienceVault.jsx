@@ -2,11 +2,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Bookmark, Plus, Trash2, FileText } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useLang } from '../context/LanguageContext';
 
 const STORAGE_KEY = 'experienceVault';
 
 export default function ExperienceVault({ events = [] }) {
   const { theme } = useTheme();
+  const { t } = useLang();
   const isDark = theme === 'dark';
 
   const [vault, setVault] = useState([]);
@@ -68,13 +70,13 @@ export default function ExperienceVault({ events = [] }) {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
           <span className="inline-block gold-gradient text-navy text-[0.65rem] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-4">
-            Saved Picks
+            {t('savedPicks')}
           </span>
           <h2 className={`font-playfair text-3xl sm:text-4xl font-extrabold mb-3 ${isDark ? 'text-white' : 'text-navy'}`}>
-            Experience Vault
+            {t('experienceVaultTitle')}
           </h2>
           <p className={isDark ? 'text-white/50' : 'text-gray-400'}>
-            Save events you love and keep quick personal notes for later.
+            {t('experienceVaultSubtitle')}
           </p>
         </div>
 
@@ -85,7 +87,7 @@ export default function ExperienceVault({ events = [] }) {
               onChange={(e) => setSelectedId(e.target.value)}
               className={`flex-1 px-4 py-2.5 rounded-xl text-sm outline-none border ${isDark ? 'bg-navy text-white border-white/10' : 'bg-cream text-navy border-gray-200'}`}
             >
-              <option value="">Select an event to save</option>
+              <option value="">{t('selectEventToSave')}</option>
               {availableEvents.map((ev) => (
                 <option key={ev.id} value={ev.id}>{ev.name} — {ev.city}</option>
               ))}
@@ -96,14 +98,14 @@ export default function ExperienceVault({ events = [] }) {
               disabled={!selectedId}
               className="px-4 py-2.5 rounded-xl gold-gradient text-navy text-sm font-semibold disabled:opacity-50 flex items-center justify-center gap-2"
             >
-              <Plus size={15} /> Add to Vault
+              <Plus size={15} /> {t('saveToVault')}
             </button>
           </div>
 
           {vault.length === 0 ? (
             <div className={`rounded-xl border-2 border-dashed p-10 text-center ${isDark ? 'border-white/10 text-white/30' : 'border-gray-200 text-gray-300'}`}>
               <Bookmark className="mx-auto mb-2" size={28} />
-              Your vault is empty.
+              {t('yourVaultEmpty')}
             </div>
           ) : (
             <div className="space-y-4">
@@ -134,7 +136,7 @@ export default function ExperienceVault({ events = [] }) {
                     <textarea
                       value={item.note}
                       onChange={(e) => updateNote(item.id, e.target.value)}
-                      placeholder="Add your note (what to see, budget, people, etc.)"
+                      placeholder={t('addNotePlaceholder')}
                       rows={2}
                       className={`w-full pl-8 pr-3 py-2.5 rounded-lg text-sm outline-none border resize-none ${isDark ? 'bg-navy text-white border-white/10 placeholder:text-white/25' : 'bg-white text-navy border-gray-200 placeholder:text-gray-300'}`}
                     />

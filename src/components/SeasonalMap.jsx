@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { seasons } from '../data/constants';
 import events from '../data/events.json';
+import { useLang } from '../context/LanguageContext';
 
 /*
  * Equirectangular projection from real lat/lng:
@@ -70,6 +71,7 @@ function projectToMap(latitude, longitude) {
 export default function SeasonalMap() {
   const [activeSeason, setActiveSeason] = useState('summer');
   const navigate = useNavigate();
+  const { t } = useLang();
 
   const seasonEvents = events.filter((e) => e.season === activeSeason);
 
@@ -147,13 +149,13 @@ export default function SeasonalMap() {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="inline-block gold-gradient text-navy text-[0.65rem] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-4">
-            Interactive
+            {t('mapLabel')}
           </span>
           <h2 className="font-playfair text-3xl sm:text-4xl font-extrabold text-white mb-3">
-            Seasonal Cultural Map
+            {t('mapTitle')}
           </h2>
           <p className="text-white/50 max-w-md mx-auto">
-            Watch France come alive — select a season to see where cultural activity peaks
+            {t('mapSubtitle')}
           </p>
         </div>
 
@@ -169,7 +171,7 @@ export default function SeasonalMap() {
                   : 'border border-white/20 text-white/55 hover:border-gold/40'
               }`}
             >
-              {s.emoji} {s.label}
+              {s.emoji} {t(s.labelKey)}
             </button>
           ))}
         </div>

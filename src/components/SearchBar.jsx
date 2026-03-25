@@ -8,7 +8,7 @@ import { useLang } from '../context/LanguageContext';
 
 export default function SearchBar() {
   const navigate = useNavigate();
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [city, setCity] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -80,13 +80,13 @@ export default function SearchBar() {
 
   const handleRandomAiSearch = () => {
     const randomCity = cities[Math.floor(Math.random() * cities.length)];
-    const randomMood = moods[Math.floor(Math.random() * moods.length)].label;
+    const randomMood = t(moods[Math.floor(Math.random() * moods.length)].labelKey);
     const suggestions = [
-      `${randomMood} events near ${randomCity.name}`,
-      `Best ${randomMood.toLowerCase()} festivals in ${randomCity.name}`,
-      `${randomMood} cultural experiences near ${randomCity.name}`,
-      `What ${randomMood.toLowerCase()} events are near ${randomCity.name}?`,
-      `Find me ${randomMood.toLowerCase()} activities in ${randomCity.name}`,
+      lang === 'fr' ? `${randomMood} evenements pres de ${randomCity.name}` : `${randomMood} events near ${randomCity.name}`,
+      lang === 'fr' ? `Meilleurs festivals ${randomMood.toLowerCase()} a ${randomCity.name}` : `Best ${randomMood.toLowerCase()} festivals in ${randomCity.name}`,
+      lang === 'fr' ? `${randomMood} experiences culturelles pres de ${randomCity.name}` : `${randomMood} cultural experiences near ${randomCity.name}`,
+      lang === 'fr' ? `Quels evenements ${randomMood.toLowerCase()} sont pres de ${randomCity.name} ?` : `What ${randomMood.toLowerCase()} events are near ${randomCity.name}?`,
+      lang === 'fr' ? `Trouve-moi des activites ${randomMood.toLowerCase()} a ${randomCity.name}` : `Find me ${randomMood.toLowerCase()} activities in ${randomCity.name}`,
     ];
     const randomQuery = suggestions[Math.floor(Math.random() * suggestions.length)];
     setNlQuery(randomQuery);
@@ -110,7 +110,7 @@ export default function SearchBar() {
           }`}
         >
           <Compass size={13} className="inline mr-1.5 -mt-0.5" />
-          Classic Search
+          {t('classicSearch')}
         </button>
         <button
           onClick={() => setIsAiMode(true)}
@@ -121,7 +121,7 @@ export default function SearchBar() {
           }`}
         >
           <Sparkles size={13} className="inline mr-1.5 -mt-0.5" />
-          AI Search
+          {t('aiSearch')}
         </button>
       </div>
 
@@ -129,7 +129,7 @@ export default function SearchBar() {
       {isAiMode ? (
         <div className="glass-dark rounded-2xl p-6 shadow-2xl">
           <label className="block text-gold text-[0.72rem] font-semibold tracking-[0.12em] uppercase mb-2">
-            ✨ Ask in natural language
+            {t('askNatural')}
           </label>
           <div className="flex gap-3">
             <input
@@ -137,12 +137,12 @@ export default function SearchBar() {
               value={nlQuery}
               onChange={(e) => setNlQuery(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleAiSearch()}
-              placeholder='e.g. "romantic festivals near Lyon this summer under 50km"'
+              placeholder={t('aiPlaceholder')}
               className="flex-1 bg-white/10 border border-white/20 rounded-xl text-white px-4 py-3 text-sm outline-none focus:border-gold transition-colors placeholder:text-white/35"
             />
             <button
               onClick={handleRandomAiSearch}
-              title="Get random search suggestion"
+              title={t('randomSearchHint')}
               className="flex items-center justify-center bg-white/10 border border-white/20 hover:border-gold/60 text-white px-4 py-3 rounded-xl font-bold text-lg hover:scale-105 transition-all hover:bg-white/15"
             >
               🎲
@@ -155,12 +155,12 @@ export default function SearchBar() {
               {aiLoading ? (
                 <span className="flex items-center gap-2">
                   <span className="w-4 h-4 border-2 border-navy/30 border-t-navy rounded-full animate-spin" />
-                  Thinking...
+                  {t('thinking')}
                 </span>
               ) : (
                 <>
                   <Sparkles size={14} className="inline mr-1.5 -mt-0.5" />
-                  Search
+                  {t('search')}
                 </>
               )}
             </button>
@@ -174,14 +174,14 @@ export default function SearchBar() {
             {/* Location */}
             <div className="flex-1 min-w-[140px]">
               <label className="block text-gold text-[0.72rem] font-semibold tracking-[0.12em] uppercase mb-2">
-                <MapPin size={12} className="inline mr-1 -mt-0.5" /> Location
+                 <MapPin size={12} className="inline mr-1 -mt-0.5" /> {t('location')}
               </label>
               <select
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 className="w-full bg-white/10 border border-white/20 rounded-xl text-white px-4 py-3 text-sm outline-none focus:border-gold transition-colors"
               >
-                <option value="">All of France</option>
+                <option value="">{t('allFrance')}</option>
                 {cities.map((c) => (
                   <option key={c.name} value={c.name} className="bg-navy text-white">{c.name}</option>
                 ))}
@@ -217,7 +217,7 @@ export default function SearchBar() {
             {/* Range */}
             <div className="flex-1 min-w-[140px]">
               <label className="block text-gold text-[0.72rem] font-semibold tracking-[0.12em] uppercase mb-2">
-                ⭕ Proximity
+                ⭕ {t('proximity')}
               </label>
               <select
                 value={range}
@@ -229,14 +229,14 @@ export default function SearchBar() {
                 <option value={100} className="bg-navy">100 km</option>
                 <option value={200} className="bg-navy">200 km</option>
                 <option value={500} className="bg-navy">500 km</option>
-                <option value={10000} className="bg-navy">No limit</option>
+                <option value={10000} className="bg-navy">{t('noLimit')}</option>
               </select>
             </div>
 
             {/* Random button */}
             <button
               onClick={handleRandomSearch}
-              title="Get random search suggestion"
+              title={t('randomSearchHint')}
               className="flex items-center justify-center bg-white/10 border border-white/20 hover:border-gold/60 text-white px-4 py-3 rounded-xl font-bold text-lg hover:scale-105 transition-all hover:bg-white/15"
             >
               🎲
@@ -247,13 +247,13 @@ export default function SearchBar() {
               onClick={handleSearch}
               className="gold-gradient text-navy px-8 py-3 rounded-xl font-bold text-sm hover:scale-105 transition-transform shadow-lg shadow-gold/30 whitespace-nowrap"
             >
-              Explore Now →
+              {t('exploreNow')}
             </button>
           </div>
 
           {/* Mood chips */}
           <div className="flex gap-3 flex-wrap items-center mt-5">
-            <span className="text-[0.72rem] text-white/40 font-semibold tracking-[0.08em] uppercase">Mood:</span>
+            <span className="text-[0.72rem] text-white/40 font-semibold tracking-[0.08em] uppercase">{t('mood')}</span>
             {moods.map((m) => (
               <button
                 key={m.id}
@@ -264,7 +264,7 @@ export default function SearchBar() {
                     : 'bg-white/10 text-white/70 border-white/15 hover:border-gold/40'
                 }`}
               >
-                {m.emoji} {m.label}
+                {m.emoji} {t(m.labelKey)}
               </button>
             ))}
           </div>

@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import events from '../data/events.json';
 import EventCard from '../components/EventCard';
 import EventModal from '../components/EventModal';
-import { categories, seasons, moods, regions } from '../data/constants';
+import { categories, seasons, regions, categoryLabelKeys } from '../data/constants';
+import { useLang } from '../context/LanguageContext';
 
 export default function Events() {
+  const { t } = useLang();
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [filterCategory, setFilterCategory] = useState('');
   const [filterSeason, setFilterSeason] = useState('');
@@ -37,10 +39,10 @@ export default function Events() {
             animate={{ opacity: 1, y: 0 }}
             className="font-playfair text-4xl sm:text-5xl font-bold text-white mb-3"
           >
-            All Cultural Events
+            {t('browseTitle')}
           </motion.h1>
           <p className="text-white/50 max-w-md mx-auto">
-            Browse France's complete cultural calendar — filter by region, category, or season
+            {t('browseLabel')} France - {t('allRegions').toLowerCase()}, {t('allCategories').toLowerCase()}, {t('allSeasons').toLowerCase()}
           </p>
         </div>
       </div>
@@ -54,9 +56,9 @@ export default function Events() {
             onChange={(e) => setFilterCategory(e.target.value)}
             className="text-sm bg-navy/5 border border-navy/10 rounded-lg px-3 py-1.5 text-navy font-medium outline-none"
           >
-            <option value="">All Categories</option>
+            <option value="">{t('allCategories')}</option>
             {categories.map((c) => (
-              <option key={c} value={c}>{c}</option>
+              <option key={c} value={c}>{t(categoryLabelKeys[c])}</option>
             ))}
           </select>
 
@@ -66,9 +68,9 @@ export default function Events() {
             onChange={(e) => setFilterSeason(e.target.value)}
             className="text-sm bg-navy/5 border border-navy/10 rounded-lg px-3 py-1.5 text-navy font-medium outline-none"
           >
-            <option value="">All Seasons</option>
+            <option value="">{t('allSeasons')}</option>
             {seasons.map((s) => (
-              <option key={s.id} value={s.id}>{s.emoji} {s.label}</option>
+              <option key={s.id} value={s.id}>{s.emoji} {t(s.labelKey)}</option>
             ))}
           </select>
 
@@ -78,7 +80,7 @@ export default function Events() {
             onChange={(e) => setFilterRegion(e.target.value)}
             className="text-sm bg-navy/5 border border-navy/10 rounded-lg px-3 py-1.5 text-navy font-medium outline-none"
           >
-            <option value="">All Regions</option>
+            <option value="">{t('allRegions')}</option>
             {regions.map((r) => (
               <option key={r} value={r}>{r}</option>
             ))}
@@ -93,12 +95,12 @@ export default function Events() {
                 : 'bg-white text-gray-500 border-gray-200 hover:border-gold/40'
             }`}
           >
-            ✨ Hidden Gems
+            ✨ {t('hiddenGems')}
           </button>
 
           {/* Count */}
           <span className="ml-auto text-sm text-gray-400">
-            {filtered.length} event{filtered.length !== 1 ? 's' : ''}
+            {filtered.length} {t('eventsFound')}
           </span>
         </div>
       </div>
@@ -108,8 +110,8 @@ export default function Events() {
         {filtered.length === 0 ? (
           <div className="text-center py-20">
             <div className="text-6xl mb-4">🎭</div>
-            <h3 className="font-playfair text-2xl font-bold text-navy mb-2">No events match your filters</h3>
-            <p className="text-gray-400">Try relaxing your filter criteria</p>
+            <h3 className="font-playfair text-2xl font-bold text-navy mb-2">{t('noEventsMatchFilters')}</h3>
+            <p className="text-gray-400">{t('relaxFilters')}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">

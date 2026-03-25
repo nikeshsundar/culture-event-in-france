@@ -57,9 +57,15 @@ Return JSON with these fields (use null for missing):
 /**
  * Generate AI cultural story for an event
  */
-export async function generateEventStory(event) {
-  const system = 'You are a vivid storyteller specializing in French culture. Write short, immersive stories.';
-  const user = `Write a short immersive story (3-4 sentences, max 60 words) about "${event.name}" in ${event.city}, France. Be vivid, sensory, and engaging. No bullet points.`;
+export async function generateEventStory(event, lang = 'en') {
+  const system =
+    lang === 'fr'
+      ? 'Vous etes un conteur specialise dans la culture francaise. Ecrivez des recits courts et immersifs en francais.'
+      : 'You are a vivid storyteller specializing in French culture. Write short, immersive stories.';
+  const user =
+    lang === 'fr'
+      ? `Ecris une courte histoire immersive (3-4 phrases, max 60 mots) sur "${event.name}" a ${event.city}, France. Rends-la vivante et sensorielle. Pas de puces.`
+      : `Write a short immersive story (3-4 sentences, max 60 words) about "${event.name}" in ${event.city}, France. Be vivid, sensory, and engaging. No bullet points.`;
 
   try {
     const text = await chatCompletion(system, user);
@@ -89,8 +95,11 @@ export async function generateFrenchPhrase(event) {
 /**
  * Ask AI about a specific event
  */
-export async function askAboutEvent(event, question) {
-  const system = `You are a knowledgeable French cultural guide. You are answering about "${event.name}" in ${event.city}. Category: ${event.category}. Date: ${event.date}. Description: ${event.description}. History: ${event.historicalNote}. Give concise answers (2-4 sentences).`;
+export async function askAboutEvent(event, question, lang = 'en') {
+  const system =
+    lang === 'fr'
+      ? `Tu es un guide culturel francais expert. Tu reponds a propos de "${event.name}" a ${event.city}. Categorie: ${event.category}. Date: ${event.date}. Description: ${event.description}. Histoire: ${event.historicalNote}. Reponds en francais en 2 a 4 phrases concises.`
+      : `You are a knowledgeable French cultural guide. You are answering about "${event.name}" in ${event.city}. Category: ${event.category}. Date: ${event.date}. Description: ${event.description}. History: ${event.historicalNote}. Give concise answers (2-4 sentences).`;
 
   try {
     const text = await chatCompletion(system, question);

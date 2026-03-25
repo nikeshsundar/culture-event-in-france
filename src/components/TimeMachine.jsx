@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import events from '../data/events.json';
+import { useLang } from '../context/LanguageContext';
 
 const timelineData = [
   {
@@ -57,6 +57,7 @@ const timelineData = [
 
 export default function TimeMachine() {
   const [sliderYear, setSliderYear] = useState(2026);
+  const { t } = useLang();
 
   const visibleItems = timelineData.filter((item) => item.year <= sliderYear);
 
@@ -66,19 +67,19 @@ export default function TimeMachine() {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="inline-block gold-gradient text-navy text-[0.65rem] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-4">
-            Travel Through Time
+            {t('timeLabel')}
           </span>
           <h2 className="font-playfair text-3xl sm:text-4xl font-extrabold text-navy mb-3">
-            Cultural Time Machine
+            {t('timeTitle')}
           </h2>
           <p className="text-gray-400 max-w-md mx-auto">
-            Explore what cultural events happened in France on the same date across history
+            {t('timeSubtitle')}
           </p>
         </div>
 
         {/* Year slider */}
         <div className="flex items-center gap-5 mb-10 max-w-xl mx-auto">
-          <span className="text-sm text-gray-400 font-semibold whitespace-nowrap">🕰 Year:</span>
+          <span className="text-sm text-gray-400 font-semibold whitespace-nowrap">🕰 {t('date')}:</span>
           <input
             type="range"
             min="1200"
@@ -121,7 +122,7 @@ export default function TimeMachine() {
                         : 'bg-crimson/10 text-crimson'
                     }`}
                   >
-                    {item.year} — {item.badge === 'now' ? 'Today' : 'Historical'}
+                    {item.year} - {item.badge === 'now' ? t('nowLabel') : t('historyLabel')}
                   </span>
                   <h4 className="font-playfair text-base font-bold text-navy mb-1">{evt.name}</h4>
                   <p className="text-sm text-gray-500 leading-relaxed">{evt.desc}</p>

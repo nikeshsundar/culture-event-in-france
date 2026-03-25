@@ -2,11 +2,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { CalendarDays, Clock3, MapPin, Plus, Trash2 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useLang } from '../context/LanguageContext';
 
 const STORAGE_KEY = 'myItinerary';
 
 export default function MyItinerary({ events = [] }) {
   const { theme } = useTheme();
+  const { t } = useLang();
   const isDark = theme === 'dark';
 
   const [items, setItems] = useState([]);
@@ -71,13 +73,13 @@ export default function MyItinerary({ events = [] }) {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
           <span className="inline-block gold-gradient text-navy text-[0.65rem] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-4">
-            Plan Ahead
+            {t('planAhead')}
           </span>
           <h2 className={`font-playfair text-3xl sm:text-4xl font-extrabold mb-3 ${isDark ? 'text-white' : 'text-navy'}`}>
-            My Itinerary
+            {t('myItineraryTitle')}
           </h2>
           <p className={isDark ? 'text-white/50' : 'text-gray-400'}>
-            Build your personal schedule with dates and times.
+            {t('myItinerarySubtitle')}
           </p>
         </div>
 
@@ -88,7 +90,7 @@ export default function MyItinerary({ events = [] }) {
               onChange={(e) => setEventId(e.target.value)}
               className={`md:col-span-2 px-4 py-2.5 rounded-xl text-sm outline-none border ${isDark ? 'bg-navy text-white border-white/10' : 'bg-cream text-navy border-gray-200'}`}
             >
-              <option value="">Select event</option>
+              <option value="">{t('selectEvent')}</option>
               {events.map((ev) => (
                 <option key={ev.id} value={ev.id}>{ev.name} — {ev.city}</option>
               ))}
@@ -114,13 +116,13 @@ export default function MyItinerary({ events = [] }) {
             disabled={!eventId || !date}
             className="mb-6 px-4 py-2.5 rounded-xl gold-gradient text-navy text-sm font-semibold disabled:opacity-50 flex items-center gap-2"
           >
-            <Plus size={15} /> Add to Itinerary
+            <Plus size={15} /> {t('addToItinerary')}
           </button>
 
           {sortedItems.length === 0 ? (
             <div className={`rounded-xl border-2 border-dashed p-10 text-center ${isDark ? 'border-white/10 text-white/30' : 'border-gray-200 text-gray-300'}`}>
               <CalendarDays className="mx-auto mb-2" size={28} />
-              No planned events yet.
+              {t('noPlannedEvents')}
             </div>
           ) : (
             <div className="space-y-3">

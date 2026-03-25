@@ -10,9 +10,11 @@ import EventCard from '../components/EventCard';
 import EventModal from '../components/EventModal';
 import { motion } from 'framer-motion';
 import events from '../data/events.json';
+import { useLang } from '../context/LanguageContext';
 
 export default function Home() {
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const { t } = useLang();
 
   // Simulated explored events for demo
   const exploredRegions = [
@@ -52,13 +54,13 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block gold-gradient text-navy text-[0.65rem] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-4">
-              Featured Events
+              {t('featuredLabel')}
             </span>
             <h2 className="font-playfair text-3xl sm:text-4xl font-extrabold text-navy mb-3">
-              Top Cultural Experiences
+              {t('featuredTitle')}
             </h2>
             <p className="text-gray-400 max-w-md mx-auto">
-              Explore some of France's most iconic cultural celebrations
+              {t('featuredSubtitle')}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">

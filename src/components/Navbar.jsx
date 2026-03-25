@@ -75,9 +75,9 @@ export default function Navbar() {
         <button
           onClick={toggleLang}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/15 text-white/70 hover:text-gold hover:border-gold/40 transition-all text-xs font-semibold"
-          title={lang === 'en' ? 'Passer en français' : 'Switch to English'}
+          title={lang === 'en' ? t('switchToFrench') : t('switchToEnglish')}
         >
-          {lang === 'en' ? '🇬🇧 EN' : '🇫🇷 FR'}
+          {lang === 'en' ? `🇬🇧 ${t('languageEnglish')}` : `🇫🇷 ${t('languageFrench')}`}
         </button>
 
         {/* CTA */}
@@ -122,8 +122,9 @@ export default function Navbar() {
               <button
                 onClick={toggleLang}
                 className="px-3 py-1.5 rounded-lg border border-white/15 text-white/70 text-xs font-semibold"
+                title={lang === 'en' ? t('switchToFrench') : t('switchToEnglish')}
               >
-                {lang === 'en' ? '🇬🇧 EN' : '🇫🇷 FR'}
+                {lang === 'en' ? `🇬🇧 ${t('languageEnglish')}` : `🇫🇷 ${t('languageFrench')}`}
               </button>
             </div>
             <Link

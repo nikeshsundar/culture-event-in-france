@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Bookmark, CalendarPlus } from 'lucide-react';
 import { sensoryTypes } from '../data/constants';
+import { useLang } from '../context/LanguageContext';
 
 export default function EventCard({ event, index = 0, onClick }) {
+  const { t, locale } = useLang();
   const sensoryMap = Object.fromEntries(sensoryTypes.map((s) => [s.id, s]));
 
   const addToVault = (e) => {
@@ -19,9 +21,9 @@ export default function EventCard({ event, index = 0, onClick }) {
         };
         localStorage.setItem('experienceVault', JSON.stringify([...saved, newItem]));
         window.dispatchEvent(new Event('vault-updated'));
-        alert('Added to Experience Vault!');
+        alert(t('addedToVault'));
       } else {
-        alert('Already in your Vault.');
+        alert(t('alreadyInVault'));
       }
     } catch (err) {
       console.error(err);
@@ -42,7 +44,7 @@ export default function EventCard({ event, index = 0, onClick }) {
       };
       localStorage.setItem('myItinerary', JSON.stringify([...saved, newItem]));
       window.dispatchEvent(new Event('itinerary-updated'));
-      alert(`Added to Itinerary for ${event.date}!`);
+      alert(`${t('addedToItineraryFor')} ${new Date(event.date).toLocaleDateString(locale)} !`);
     } catch (err) {
       console.error(err);
     }
@@ -66,17 +68,17 @@ export default function EventCard({ event, index = 0, onClick }) {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
-        <span className="absolute top-4 left-4 gold-gradient text-navy text-[0.7rem] font-bold px-3 py-1 rounded-full tracking-wide uppercase">
-          {event.category}
-        </span>
+          <span className="absolute top-4 left-4 gold-gradient text-navy text-[0.7rem] font-bold px-3 py-1 rounded-full tracking-wide uppercase">
+          {t(`category${event.category.replace(/[^a-zA-Z]/g, '')}`)}
+          </span>
         {event.distance !== null && event.distance !== undefined && (
           <span className="absolute top-4 right-4 bg-navy/75 border border-gold/30 text-gold-light text-[0.72rem] font-semibold px-3 py-1 rounded-full">
-            📍 {event.distance} km
+            📍 {event.distance} {t('awayKm')}
           </span>
         )}
         {event.hiddenGem && (
           <span className="absolute bottom-4 right-4 bg-crimson/90 text-white text-[0.65rem] font-bold px-2.5 py-1 rounded-full">
-            ✨ Hidden Gem
+            ✨ {t('hiddenGemTag')}
           </span>
         )}
       </div>
@@ -92,7 +94,7 @@ export default function EventCard({ event, index = 0, onClick }) {
           </span>
           <span className="flex items-center gap-1.5">
             <Calendar size={13} />
-            {new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+            {new Date(event.date).toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })}
           </span>
         </div>
         <p className="text-[0.87rem] text-gray-500 leading-relaxed mb-4 line-clamp-2">
@@ -103,7 +105,7 @@ export default function EventCard({ event, index = 0, onClick }) {
         <div className="flex gap-2 flex-wrap mb-4 min-h-[2.5rem]">
           {event.sensory.map((s) => (
             <span key={s} className="bg-navy/5 text-navy text-[0.72rem] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
-              {sensoryMap[s]?.emoji} {sensoryMap[s]?.label}
+              {sensoryMap[s]?.emoji} {t(sensoryMap[s]?.labelKey)}
             </span>
           ))}
         </div>
@@ -111,7 +113,7 @@ export default function EventCard({ event, index = 0, onClick }) {
         {/* Cultural depth bar */}
         <div>
           <div className="flex justify-between text-[0.75rem] text-gray-400 mb-1.5">
-            <span>Cultural Depth</span>
+            <span>{t('culturalDepth')}</span>
             <span>{event.culturalDepth}%</span>
           </div>
           <div className="h-[5px] bg-gray-200 rounded-full overflow-hidden">
@@ -137,14 +139,14 @@ export default function EventCard({ event, index = 0, onClick }) {
           <button
             onClick={addToVault}
             className="p-2 rounded-full bg-gray-50 text-gray-400 hover:bg-gold/10 hover:text-gold-dark transition-all"
-            title="Add to Vault"
+            title={t('saveToVault')}
           >
             <Bookmark size={18} />
           </button>
           <button
             onClick={addToItinerary}
             className="p-2 rounded-full bg-gray-50 text-gray-400 hover:bg-gold/10 hover:text-gold-dark transition-all"
-            title="Add to Itinerary"
+            title={t('addToItinerary')}
           >
             <CalendarPlus size={18} />
           </button>

@@ -87,14 +87,14 @@ export default function RoutePlanner() {
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="inline-block gold-gradient text-navy text-[0.65rem] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-4">
-            Road Trip
-          </span>
+            <span className="inline-block gold-gradient text-navy text-[0.65rem] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-4">
+            {t('roadTrip')}
+            </span>
           <h2 className={`font-playfair text-3xl sm:text-4xl font-extrabold mb-3 ${isDark ? 'text-white' : 'text-navy'}`}>
-            Cultural Route Planner
+            {t('routeTitle')}
           </h2>
           <p className={isDark ? 'text-white/50' : 'text-gray-400'}>
-            Pick up to 5 events and we'll map your perfect French road trip
+            {t('routePickSubtitle')}
           </p>
         </div>
 
@@ -103,10 +103,10 @@ export default function RoutePlanner() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Route size={16} className="text-gold" />
-              <span className={`text-sm font-semibold ${isDark ? 'text-white/70' : 'text-navy/70'}`}>
-                Your Stops ({selectedIds.length}/5)
-              </span>
-            </div>
+                <span className={`text-sm font-semibold ${isDark ? 'text-white/70' : 'text-navy/70'}`}>
+                {t('yourStops')} ({selectedIds.length}/5)
+                </span>
+              </div>
 
             <button
               onClick={generateMysteryRoute}
@@ -159,7 +159,7 @@ export default function RoutePlanner() {
                   }`}
                 >
                   <Plus size={16} />
-                  <span className="text-sm font-medium">Add a stop</span>
+                  <span className="text-sm font-medium">{t('addAStop')}</span>
                 </button>
 
                 <AnimatePresence>
@@ -203,12 +203,12 @@ export default function RoutePlanner() {
                 <div className={`flex gap-6 mb-6 p-4 rounded-xl ${isDark ? 'bg-white/5 border border-white/10' : 'bg-white border border-gray-100'}`}>
                   <div className="flex items-center gap-2">
                     <Navigation size={14} className="text-gold" />
-                    <span className={`text-sm ${isDark ? 'text-white/60' : 'text-gray-500'}`}>Total</span>
+                    <span className={`text-sm ${isDark ? 'text-white/60' : 'text-gray-500'}`}>{t('total')}</span>
                     <span className={`text-lg font-bold ${isDark ? 'text-white' : 'text-navy'}`}>{totalKm} km</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock size={14} className="text-gold" />
-                    <span className={`text-sm ${isDark ? 'text-white/60' : 'text-gray-500'}`}>Drive</span>
+                    <span className={`text-sm ${isDark ? 'text-white/60' : 'text-gray-500'}`}>{t('drive')}</span>
                     <span className={`text-lg font-bold ${isDark ? 'text-white' : 'text-navy'}`}>
                       {totalMin >= 60 ? `${Math.floor(totalMin / 60)}h ${totalMin % 60}m` : `${totalMin}m`}
                     </span>
@@ -249,7 +249,7 @@ export default function RoutePlanner() {
               }`}>
                 <MapPin size={32} className={isDark ? 'text-white/15' : 'text-gray-200'} />
                 <p className={`mt-3 text-sm ${isDark ? 'text-white/25' : 'text-gray-300'}`}>
-                  Add at least 2 stops to see your route
+                  {t('addTwoStopsHint')}
                 </p>
               </div>
             )}

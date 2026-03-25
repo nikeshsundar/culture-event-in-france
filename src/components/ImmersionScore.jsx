@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import { calculateImmersionScore } from '../utils/scoring';
+import { useLang } from '../context/LanguageContext';
 
 export default function ImmersionScore({ exploredEvents = [] }) {
+  const { t } = useLang();
   const score = calculateImmersionScore(exploredEvents);
 
   const categories = [
-    { icon: '🎵', name: 'Music & Arts', value: score.categories },
-    { icon: '🗺️', name: 'Regions', value: score.regions },
-    { icon: '☀️', name: 'Seasons', value: score.seasons },
+    { icon: '🎵', name: t('statCategories'), value: score.categories },
+    { icon: '🗺️', name: t('statRegions'), value: score.regions },
+    { icon: '☀️', name: t('allSeasons'), value: score.seasons },
   ];
 
   return (
@@ -15,13 +17,13 @@ export default function ImmersionScore({ exploredEvents = [] }) {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <span className="inline-block gold-gradient text-navy text-[0.65rem] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-4">
-          Your Progress
+          {t('immersionLabel')}
         </span>
         <h2 className="font-playfair text-3xl sm:text-4xl font-extrabold text-white mb-3">
-          Cultural Immersion Score
+          {t('immersionTitle')}
         </h2>
         <p className="text-white/50 max-w-md mx-auto mb-12">
-          Your personal score grows as you discover more of France's rich cultural heritage
+          {t('immersionBased')}
         </p>
 
         {/* Score ring */}
@@ -47,7 +49,7 @@ export default function ImmersionScore({ exploredEvents = [] }) {
               >
                 {score.total}%
               </motion.div>
-              <span className="text-[0.72rem] text-white/50 uppercase tracking-[0.1em]">Immersed</span>
+              <span className="text-[0.72rem] text-white/50 uppercase tracking-[0.1em]">{t('immersionLabel')}</span>
             </div>
           </motion.div>
         </div>
